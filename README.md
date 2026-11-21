@@ -44,6 +44,10 @@ cp public_src/license.md docs/LICENSE.txt
 - **Cloudflare:** `wrangler.jsonc` serves `docs/`. Set `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as repository secrets and push to `main`; the included GitHub Action rebuilds and deploys automatically.
 - **GitHub Pages:** enable Pages from the `main` branch, `/docs` folder. Set `site.txt` to the GitHub Pages URL first.
 
+## Display
+
+Every page has a dark/light toggle in the top-right corner. The choice is remembered locally and, on a fresh visit, follows your device's `prefers-color-scheme` setting.
+
 ## Non-commercial promise
 
 No ads, affiliate links, paywalls, donations or tracking on this site. A ▶ button next to each timestamp loads a YouTube embed only on click; that player is governed by YouTube's terms and may show its own ads or set cookies.

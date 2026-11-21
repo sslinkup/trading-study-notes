@@ -21,63 +21,105 @@
 <meta name="twitter:image" content="https://trading-study-notes.sanliurfa.workers.dev/social-card.png">
 <meta name="twitter:title" content="Trading Study Notes">
 <meta name="twitter:description" content="Trading Study Notes: original study notes with clickable timestamp links to the original videos.">
+<script>
+(function() {
+  function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+  function apply(dark) {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('study-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    var b = document.getElementById('themeToggle');
+    if (b) {
+      b.textContent = dark ? '☀' : '☾';
+      b.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+      b.setAttribute('aria-label', b.title);
+    }
+  }
+  try {
+    var saved = localStorage.getItem('study-theme');
+    var dark = saved === 'dark' ||
+      (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    apply(dark);
+  } catch (e) { apply(false); }
+  document.addEventListener('DOMContentLoaded', function() {
+    var b = document.getElementById('themeToggle');
+    if (b) b.addEventListener('click', function() { apply(!isDark()); });
+  });
+})();
+</script>
 <style>
-:root { color-scheme: light; }
+:root {
+  color-scheme: light;
+  --bg: #fff; --fg: #1f2328; --muted: #57606a; --border: #d0d7de; --subtle: #f6f8fa;
+  --link: #0969da; --link-strong: #0a3069; --ts-bg: #fff8c5; --ts-hover: #ffe66b;
+  --note-bg: #ddf4ff; --card-bg: #fff; --btn: #0969da; --btn-hover: #0550ae;
+  --btn2-bg: #f6f8fa; --btn2-fg: #1f2328; --shadow: rgba(31,35,40,.12);
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d1117; --fg: #e6edf3; --muted: #9da7b3; --border: #30363d; --subtle: #161b22;
+  --link: #58a6ff; --link-strong: #79c0ff; --ts-bg: #3b2f00; --ts-hover: #5a4600;
+  --note-bg: #0d2b45; --card-bg: #161b22; --btn: #1f6feb; --btn-hover: #388bfd;
+  --btn2-bg: #21262d; --btn2-fg: #e6edf3; --shadow: rgba(0,0,0,.5);
+}
 body { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 5rem;
        font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-       color: #1f2328; background: #fff; }
-a { color: #0969da; }
+       color: var(--fg); background: var(--bg); }
+button.theme-toggle { position: fixed; top: 1rem; right: 1rem; z-index: 20; width: 40px;
+  height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--card-bg);
+  color: var(--fg); font-size: 18px; cursor: pointer; box-shadow: 0 2px 8px var(--shadow); }
+button.theme-toggle:hover { border-color: var(--link); }
+a { color: var(--link); }
 a.back { display: inline-block; margin-bottom: 1.5rem; font-size: .9rem; }
-a.ts { color: #0a3069; background: #fff8c5; padding: 0 .25em; border-radius: 4px;
+a.ts { color: var(--link-strong); background: var(--ts-bg); padding: 0 .25em; border-radius: 4px;
        text-decoration: none; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
        font-size: .9em; white-space: nowrap; }
-a.ts:hover, a.ts:focus { text-decoration: underline; background: #ffe66b; }
+a.ts:hover, a.ts:focus { text-decoration: underline; background: var(--ts-hover); }
 a.ext { word-break: break-all; }
 .ts-wrap { display: inline-flex; align-items: center; gap: .25rem; }
-button.play { border: 0; background: #0969da; color: #fff; border-radius: 50%; width: 19px;
+button.play { border: 0; background: var(--btn); color: #fff; border-radius: 50%; width: 19px;
               height: 19px; padding: 0; font-size: 9px; line-height: 19px; cursor: pointer; }
-button.play:hover { background: #0550ae; }
+button.play:hover { background: var(--btn-hover); }
 .embed-slot { display: block; margin: .75rem 0; }
 .embed-slot iframe { display: block; width: min(560px, 100%); aspect-ratio: 16 / 9;
                      border: 0; border-radius: 10px; background: #000; }
 h1, h2, h3, h4 { line-height: 1.25; margin-top: 1.6em; }
-h1 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
-h2 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
-pre { background: #f6f8fa; padding: 1rem; overflow-x: auto; border-radius: 6px; }
-code { background: #f6f8fa; padding: .15em .4em; border-radius: 4px; font-size: .9em; }
+h1 { border-bottom: 1px solid var(--border); padding-bottom: .3em; }
+h2 { border-bottom: 1px solid var(--border); padding-bottom: .3em; }
+pre { background: var(--subtle); padding: 1rem; overflow-x: auto; border-radius: 6px; }
+code { background: var(--subtle); padding: .15em .4em; border-radius: 4px; font-size: .9em; }
 pre code { background: none; padding: 0; }
-blockquote { border-left: 4px solid #d0d7de; margin-left: 0; padding-left: 1rem; color: #57606a; }
+blockquote { border-left: 4px solid var(--border); margin-left: 0; padding-left: 1rem; color: var(--muted); }
 table { border-collapse: collapse; width: 100%; }
-th, td { border: 1px solid #d0d7de; padding: .4rem .7rem; text-align: left; }
-th { background: #f6f8fa; }
+th, td { border: 1px solid var(--border); padding: .4rem .7rem; text-align: left; }
+th { background: var(--subtle); }
 img { max-width: 100%; }
-hr { border: 0; border-top: 1px solid #d0d7de; margin: 2rem 0; }
-.note { background: #ddf4ff; border-left: 4px solid #0969da; padding: .7rem 1rem;
+hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
+.note { background: var(--note-bg); border-left: 4px solid var(--link); padding: .7rem 1rem;
         border-radius: 4px; margin: 1rem 0 1.5rem; }
 body.index-page { max-width: 1120px; }
 .toolbar { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: 1.25rem 0 1.75rem; }
-.toolbar input { flex: 1; min-width: 220px; padding: .7rem .9rem; border: 1px solid #d0d7de;
-                 border-radius: 8px; font-size: 1rem; }
-.btn { display: inline-block; padding: .7rem 1.1rem; background: #0969da; color: #fff;
+.toolbar input { flex: 1; min-width: 220px; padding: .7rem .9rem; border: 1px solid var(--border);
+                 border-radius: 8px; font-size: 1rem; background: var(--card-bg); color: var(--fg); }
+.btn { display: inline-block; padding: .7rem 1.1rem; background: var(--btn); color: #fff;
        border-radius: 8px; text-decoration: none; font-weight: 600; }
-.btn.secondary { background: #f6f8fa; color: #1f2328; border: 1px solid #d0d7de; }
+.btn.secondary { background: var(--btn2-bg); color: var(--btn2-fg); border: 1px solid var(--border); }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 1.25rem; margin: 1rem 0 2rem; }
-.card { display: block; border: 1px solid #d0d7de; border-radius: 12px; overflow: hidden;
-        text-decoration: none; color: inherit; background: #fff;
+.card { display: block; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+        text-decoration: none; color: inherit; background: var(--card-bg);
         transition: transform .15s, box-shadow .15s, border-color .15s; }
-.card:hover, .card:focus { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(31,35,40,.12);
-                           border-color: #0969da; }
+.card:hover, .card:focus { transform: translateY(-2px); box-shadow: 0 6px 18px var(--shadow);
+                           border-color: var(--link); }
 .card img { display: block; width: 100%; aspect-ratio: 1200 / 630; object-fit: cover;
-            border-bottom: 1px solid #d0d7de; background: #0b1220; }
+            border-bottom: 1px solid var(--border); background: #0b1220; }
 .card-body { padding: 1rem 1.1rem 1.2rem; }
 .card h3 { margin: 0 0 .35rem; font-size: 1.15rem; }
-.card p { margin: 0; color: #57606a; font-size: .9rem; line-height: 1.5;
+.card p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.5;
           display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .quick-links { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1rem 0 2rem; }
-.quick-links a { padding: .55rem .85rem; border: 1px solid #d0d7de; border-radius: 8px;
-                 text-decoration: none; background: #fff; }
-.quick-links a:hover { border-color: #0969da; }
+.quick-links a { padding: .55rem .85rem; border: 1px solid var(--border); border-radius: 8px;
+                 text-decoration: none; background: var(--card-bg); }
+.quick-links a:hover { border-color: var(--link); }
 .section-title { margin-top: 2.5rem; }
 @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
 </style>
@@ -104,6 +146,8 @@ function toggleEmbed(btn) {
 </script>
 </head>
 <body class="index-page">
+<button class="theme-toggle" id="themeToggle" type="button" title="Toggle dark mode"
+        aria-label="Toggle dark mode">☾</button>
 <h1>Trading Study Notes</h1>
 <div class="note">Click any <strong>highlighted timestamp</strong> to open the video at that exact moment. No ads, no tracking, free to reuse.</div>
 <div class="toolbar">
@@ -129,7 +173,7 @@ function filterCards(){const q=document.getElementById('q').value.toLowerCase().
 <a href="notice">Attribution and scope</a>
 <a href="start_here">Trading Study Notes</a>
 </div>
-<footer style="margin-top:3rem;padding-top:1rem;border-top:1px solid #d0d7de;font-size:.85rem;color:#57606a">
+<footer style="margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.85rem;color:var(--muted)">
 <a href="llms.txt">llms.txt</a> · <a href="./">index</a> · original text released under CC0
 </footer>
 </body>
