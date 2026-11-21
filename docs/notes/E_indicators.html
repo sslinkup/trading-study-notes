@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indicators and Chart Reading</title>
+<meta name="description" content="Technical analysis is treated as a way of assigning probabilities, not as a way of knowing the future. The market can be read as close to a coin flip on any…">
+<meta name="author" content="Trading Study Notes">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<link rel="canonical" href="https://trading-study-notes.sanliurfa.workers.dev/notes/E_indicators">
+<link rel="alternate" type="text/plain" href="../llms.txt">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Indicators and Chart Reading", "description": "Technical analysis is treated as a way of assigning probabilities, not as a way of knowing the future. The market can be read as close to a coin flip on any…", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Trading Study Notes"}, "publisher": {"@type": "Organization", "name": "Trading Study Notes"}, "mainEntityOfPage": "https://trading-study-notes.sanliurfa.workers.dev/notes/E_indicators", "inLanguage": "en"}</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trading Study Notes">
+<meta property="og:title" content="Indicators and Chart Reading">
+<meta property="og:description" content="Technical analysis is treated as a way of assigning probabilities, not as a way of knowing the future. The market can be read as close to a coin flip on any…">
+<meta property="og:url" content="https://trading-study-notes.sanliurfa.workers.dev/notes/E_indicators">
+<meta property="og:image" content="https://trading-study-notes.sanliurfa.workers.dev/cards/E_indicators.png">
+<meta property="og:image:alt" content="Trading Study Notes - free CC0 guide with clickable video timestamps">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://trading-study-notes.sanliurfa.workers.dev/cards/E_indicators.png">
+<meta name="twitter:title" content="Indicators and Chart Reading">
+<meta name="twitter:description" content="Technical analysis is treated as a way of assigning probabilities, not as a way of knowing the future. The market can be read as close to a coin flip on any…">
+<style>
+:root { color-scheme: light; }
+body { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 5rem;
+       font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       color: #1f2328; background: #fff; }
+a { color: #0969da; }
+a.back { display: inline-block; margin-bottom: 1.5rem; font-size: .9rem; }
+a.ts { color: #0a3069; background: #fff8c5; padding: 0 .25em; border-radius: 4px;
+       text-decoration: none; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+       font-size: .9em; white-space: nowrap; }
+a.ts:hover, a.ts:focus { text-decoration: underline; background: #ffe66b; }
+a.ext { word-break: break-all; }
+.ts-wrap { display: inline-flex; align-items: center; gap: .25rem; }
+button.play { border: 0; background: #0969da; color: #fff; border-radius: 50%; width: 19px;
+              height: 19px; padding: 0; font-size: 9px; line-height: 19px; cursor: pointer; }
+button.play:hover { background: #0550ae; }
+.embed-slot { display: block; margin: .75rem 0; }
+.embed-slot iframe { display: block; width: min(560px, 100%); aspect-ratio: 16 / 9;
+                     border: 0; border-radius: 10px; background: #000; }
+h1, h2, h3, h4 { line-height: 1.25; margin-top: 1.6em; }
+h1 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
+h2 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
+pre { background: #f6f8fa; padding: 1rem; overflow-x: auto; border-radius: 6px; }
+code { background: #f6f8fa; padding: .15em .4em; border-radius: 4px; font-size: .9em; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid #d0d7de; margin-left: 0; padding-left: 1rem; color: #57606a; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #d0d7de; padding: .4rem .7rem; text-align: left; }
+th { background: #f6f8fa; }
+img { max-width: 100%; }
+hr { border: 0; border-top: 1px solid #d0d7de; margin: 2rem 0; }
+.note { background: #ddf4ff; border-left: 4px solid #0969da; padding: .7rem 1rem;
+        border-radius: 4px; margin: 1rem 0 1.5rem; }
+body.index-page { max-width: 1120px; }
+.toolbar { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: 1.25rem 0 1.75rem; }
+.toolbar input { flex: 1; min-width: 220px; padding: .7rem .9rem; border: 1px solid #d0d7de;
+                 border-radius: 8px; font-size: 1rem; }
+.btn { display: inline-block; padding: .7rem 1.1rem; background: #0969da; color: #fff;
+       border-radius: 8px; text-decoration: none; font-weight: 600; }
+.btn.secondary { background: #f6f8fa; color: #1f2328; border: 1px solid #d0d7de; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.25rem; margin: 1rem 0 2rem; }
+.card { display: block; border: 1px solid #d0d7de; border-radius: 12px; overflow: hidden;
+        text-decoration: none; color: inherit; background: #fff;
+        transition: transform .15s, box-shadow .15s, border-color .15s; }
+.card:hover, .card:focus { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(31,35,40,.12);
+                           border-color: #0969da; }
+.card img { display: block; width: 100%; aspect-ratio: 1200 / 630; object-fit: cover;
+            border-bottom: 1px solid #d0d7de; background: #0b1220; }
+.card-body { padding: 1rem 1.1rem 1.2rem; }
+.card h3 { margin: 0 0 .35rem; font-size: 1.15rem; }
+.card p { margin: 0; color: #57606a; font-size: .9rem; line-height: 1.5;
+          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.quick-links { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1rem 0 2rem; }
+.quick-links a { padding: .55rem .85rem; border: 1px solid #d0d7de; border-radius: 8px;
+                 text-decoration: none; background: #fff; }
+.quick-links a:hover { border-color: #0969da; }
+.section-title { margin-top: 2.5rem; }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+</style>
+<script>
+function toggleEmbed(btn) {
+  var wrap = btn.closest('.ts-wrap');
+  var slot = wrap && wrap.nextElementSibling;
+  if (slot && slot.classList && slot.classList.contains('embed-slot')) {
+    slot.remove();
+    return;
+  }
+  var frame = document.createElement('iframe');
+  frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(btn.dataset.video) +
+              '?start=' + encodeURIComponent(btn.dataset.start) + '&autoplay=1';
+  frame.title = 'Embedded video at ' + btn.dataset.start + ' seconds';
+  frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  frame.allowFullscreen = true;
+  frame.referrerPolicy = 'strict-origin-when-cross-origin';
+  var box = document.createElement('div');
+  box.className = 'embed-slot';
+  box.appendChild(frame);
+  wrap.insertAdjacentElement('afterend', box);
+}
+</script>
+</head>
+<body class="">
+<a class="back" href="../">&larr; Index</a>
+<h1 id="indicators-and-chart-reading">Indicators and Chart Reading</h1>
+<p><em>Original study notes. The linked videos are the original sources and remain their authors' property. Click a timestamp to verify a claim at its source.</em></p>
+<h2 id="1-what-technical-analysis-is-for">1. What technical analysis is for</h2>
+<p>Technical analysis is treated as a way of assigning probabilities, not as a way of knowing the future. The market can be read as close to a coin flip on any single trade; the edge comes from context, concentration, and consistent decision-making. Confidence and self-belief are prerequisites, because a trader who does not trust their own process will not follow it.</p>
+<p>Sources: <em>The Basic of TA — Setting Up Charts</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=2109s" target="_blank" rel="noopener">[35:09]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="2109">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>).</p>
+<h2 id="2-chart-setup-levels-and-volume-clusters">2. Chart setup: levels and volume clusters</h2>
+<p>The first tool is the horizontal line. Draw lines at obvious highs and lows and extend them indefinitely into the future — a level does not stop mattering because it was drawn last month. Areas where a lot of volume changed hands are called "areas of battle": a zone where buyers and sellers repeatedly fought, and therefore a zone price is likely to revisit.</p>
+<p>Volume bars at the bottom of the chart are part of the same read. A candle body moving through a low-volume area is weaker evidence than one moving through a high-volume area. Wick and body are read separately: a long wick into a level followed by a close back inside shows rejection.</p>
+<p>Worked examples in the sources include the 3,900–3,970 area in ETH, the 4,000 level, and a first weekly close above 4,000 that opened a move toward 4,800. In BTC, a 1,928 line of best fit on the four-hour chart marked the break that the daily chart hid.</p>
+<p>Sources: <em>The Basic of TA — Setting Up Charts</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=1465s" target="_blank" rel="noopener">[24:25]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="1465">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=1734s" target="_blank" rel="noopener">[28:54]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="1734">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=1850s" target="_blank" rel="noopener">[30:50]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="1850">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>).</p>
+<h2 id="3-trend-lines-and-timeframes">3. Trend lines and timeframes</h2>
+<p>Trend lines are drawn on price and on oscillators in the same way: connect the relevant sequence of highs or lows and watch for a break of the line. Multiple possible paths should be sketched rather than one forecast, so that the trader can react to whichever path price actually takes.</p>
+<p>Lower timeframes show detail that daily candles hide. The four-hour chart may reveal a break of a line that looks intact on the daily. Conversely, the higher timeframe decides whether a lower-timeframe signal is worth acting on.</p>
+<p>Sources: <em>The Basic of TA — Setting Up Charts</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>); <em>How to Approach Timeframe</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=VoIr0w6l8gc&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="VoIr0w6l8gc" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=VoIr0w6l8gc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=VoIr0w6l8gc</a>).</p>
+<h2 id="4-rsi-and-stochastic-rsi">4. RSI and stochastic RSI</h2>
+<p>Textbook RSI rules (above 50 bullish, above 70 overbought, below 30 oversold) are acknowledged but replaced in practice by the health levels 36 / 46 / 56 / 65 described in the dedicated indicator note. Selling a reading simply because it is oversold is specifically discouraged, because oversold can stay oversold.</p>
+<p>Stochastic RSI oscillates between 0 and 100 with conventional 80/20 bands. The more useful read is divergence: a stochastic at 100 while RSI has only reached the high 30s or low 30s indicates a weak move. Trend lines drawn on RSI are treated like price trend lines, and a break of the RSI line can precede the price break.</p>
+<p>Sources: <em>The Basic of TA — Setting Up Charts</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=2779s" target="_blank" rel="noopener">[46:19]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="2779">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=2841s" target="_blank" rel="noopener">[47:21]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="2841">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=3002s" target="_blank" rel="noopener">[50:02]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="3002">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>); <em>How to NAKEDRSI</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Bj8tpCSfjdI&t=241s" target="_blank" rel="noopener">[04:01]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Bj8tpCSfjdI" data-start="241">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Bj8tpCSfjdI" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Bj8tpCSfjdI</a>).</p>
+<h2 id="5-the-ema-stack">5. The EMA stack</h2>
+<ul>
+<li><strong>9 EMA</strong> — the fastest regime marker. Used as the short-term trend setter and in combinations with Keltner bands.</li>
+<li><strong>30 and 50 EMA</strong> — described as close companions and gatekeepers in bullish moves; the 50 often provides the bounce in a strong trend.</li>
+<li><strong>100 EMA</strong> — the main trend gatekeeper. As long as price holds above it, the broader uptrend is considered intact.</li>
+<li><strong>200 EMA</strong> — the final structural line; failure here changes the character of the move.</li>
+</ul>
+<p>EMA crossings are covered in a separate lesson. The emphasis in these notes is on price relative to a level as a regime filter, rather than on any single crossover as a mechanical signal.</p>
+<p>Sources: <em>Basic Explanation of EMAs Part 1</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=1mO0lB8X8nc&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="1mO0lB8X8nc" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=1mO0lB8X8nc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=1mO0lB8X8nc</a>); <em>EMA Lesson Part 2 — Crossing EMAs</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=oOcPYZSOCBw&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="oOcPYZSOCBw" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=oOcPYZSOCBw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=oOcPYZSOCBw</a>); <em>NKED Method</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=pVHd_vf-KX8&t=1379s" target="_blank" rel="noopener">[22:59]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="pVHd_vf-KX8" data-start="1379">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=pVHd_vf-KX8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=pVHd_vf-KX8</a>).</p>
+<h2 id="6-ichimoku-and-the-keltnerwatson-layer">6. Ichimoku and the Keltner/Watson layer</h2>
+<p>Ichimoku provides the market state: price above the cloud is a bullish environment, below it a bearish one, and inside it a volatile environment where direction is unresolved. The cloud is also described in energy terms — a zone whose boundaries matter for where momentum gathers.</p>
+<p>Keltner channels supply mean-reversion context. Price outside the bands is usually pulled back toward the middle, though a strong trend may move sideways until the bands catch up. The Watson envelope sits outside the Keltner; a green line entering the Keltner is bearish, a red line entering it bullish.</p>
+<p>Sources: <em>Ichimoku Cloud — How to Use</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=L4tJI7bWrGc&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="L4tJI7bWrGc" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=L4tJI7bWrGc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=L4tJI7bWrGc</a>); <em>Watson Envelope + Keltner</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=5hiv8vzMxcA&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="5hiv8vzMxcA" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=5hiv8vzMxcA" target="_blank" rel="noopener">https://www.youtube.com/watch?v=5hiv8vzMxcA</a>); <em>Lesson Number 5</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=7MmCcxadAwQ&t=1740s" target="_blank" rel="noopener">[29:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="7MmCcxadAwQ" data-start="1740">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=7MmCcxadAwQ" target="_blank" rel="noopener">https://www.youtube.com/watch?v=7MmCcxadAwQ</a>).</p>
+<h2 id="7-combining-the-indicators">7. Combining the indicators</h2>
+<p>The indicators are not independent signals. A single story is assembled: regime from Ichimoku and EMAs, health from RSI, energy from fast and slow stochastic, extremes from Keltner and Watson, and confirmation from volume. A lower-timeframe entry is only taken when it agrees with that story.</p>
+<p>Sources: <em>How to Approach Timeframe</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=VoIr0w6l8gc&t=452s" target="_blank" rel="noopener">[07:32]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="VoIr0w6l8gc" data-start="452">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=VoIr0w6l8gc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=VoIr0w6l8gc</a>); <em>NKED Method</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=pVHd_vf-KX8&t=1028s" target="_blank" rel="noopener">[17:08]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="pVHd_vf-KX8" data-start="1028">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=pVHd_vf-KX8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=pVHd_vf-KX8</a>).</p>
+<h2 id="8-warnings">8. Warnings</h2>
+<p>Keep a separate long-term portfolio and a small trading portfolio. Do not use high leverage without understanding the sizing implications. Training takes months, and a trader exposed to only one market regime will be unprepared when conditions change. Bitcoin dominance is background context: when Bitcoin turns down, most altcoins follow.</p>
+<p>Sources: <em>The Basic of TA — Setting Up Charts</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=1796s" target="_blank" rel="noopener">[29:56]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="1796">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=2316s" target="_blank" rel="noopener">[38:36]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="2316">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>); <em>Introduction — New to This YouTube?</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=JKLiG3p-qN4&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="JKLiG3p-qN4" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=JKLiG3p-qN4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=JKLiG3p-qN4</a>).</p>
+<footer style="margin-top:3rem;padding-top:1rem;border-top:1px solid #d0d7de;font-size:.85rem;color:#57606a">
+<a href="../llms.txt">llms.txt</a> · <a href="../">index</a> · original text released under CC0
+</footer>
+</body>
+</html>

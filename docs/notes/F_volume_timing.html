@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volume, Order Flow and Timing</title>
+<meta name="description" content="The material treats volume as more reliable than chart narratives: price levels matter, but the size of the participation at those levels determines whether a…">
+<meta name="author" content="Trading Study Notes">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<link rel="canonical" href="https://trading-study-notes.sanliurfa.workers.dev/notes/F_volume_timing">
+<link rel="alternate" type="text/plain" href="../llms.txt">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Volume, Order Flow and Timing", "description": "The material treats volume as more reliable than chart narratives: price levels matter, but the size of the participation at those levels determines whether a…", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Trading Study Notes"}, "publisher": {"@type": "Organization", "name": "Trading Study Notes"}, "mainEntityOfPage": "https://trading-study-notes.sanliurfa.workers.dev/notes/F_volume_timing", "inLanguage": "en"}</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trading Study Notes">
+<meta property="og:title" content="Volume, Order Flow and Timing">
+<meta property="og:description" content="The material treats volume as more reliable than chart narratives: price levels matter, but the size of the participation at those levels determines whether a…">
+<meta property="og:url" content="https://trading-study-notes.sanliurfa.workers.dev/notes/F_volume_timing">
+<meta property="og:image" content="https://trading-study-notes.sanliurfa.workers.dev/cards/F_volume_timing.png">
+<meta property="og:image:alt" content="Trading Study Notes - free CC0 guide with clickable video timestamps">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://trading-study-notes.sanliurfa.workers.dev/cards/F_volume_timing.png">
+<meta name="twitter:title" content="Volume, Order Flow and Timing">
+<meta name="twitter:description" content="The material treats volume as more reliable than chart narratives: price levels matter, but the size of the participation at those levels determines whether a…">
+<style>
+:root { color-scheme: light; }
+body { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 5rem;
+       font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       color: #1f2328; background: #fff; }
+a { color: #0969da; }
+a.back { display: inline-block; margin-bottom: 1.5rem; font-size: .9rem; }
+a.ts { color: #0a3069; background: #fff8c5; padding: 0 .25em; border-radius: 4px;
+       text-decoration: none; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+       font-size: .9em; white-space: nowrap; }
+a.ts:hover, a.ts:focus { text-decoration: underline; background: #ffe66b; }
+a.ext { word-break: break-all; }
+.ts-wrap { display: inline-flex; align-items: center; gap: .25rem; }
+button.play { border: 0; background: #0969da; color: #fff; border-radius: 50%; width: 19px;
+              height: 19px; padding: 0; font-size: 9px; line-height: 19px; cursor: pointer; }
+button.play:hover { background: #0550ae; }
+.embed-slot { display: block; margin: .75rem 0; }
+.embed-slot iframe { display: block; width: min(560px, 100%); aspect-ratio: 16 / 9;
+                     border: 0; border-radius: 10px; background: #000; }
+h1, h2, h3, h4 { line-height: 1.25; margin-top: 1.6em; }
+h1 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
+h2 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
+pre { background: #f6f8fa; padding: 1rem; overflow-x: auto; border-radius: 6px; }
+code { background: #f6f8fa; padding: .15em .4em; border-radius: 4px; font-size: .9em; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid #d0d7de; margin-left: 0; padding-left: 1rem; color: #57606a; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #d0d7de; padding: .4rem .7rem; text-align: left; }
+th { background: #f6f8fa; }
+img { max-width: 100%; }
+hr { border: 0; border-top: 1px solid #d0d7de; margin: 2rem 0; }
+.note { background: #ddf4ff; border-left: 4px solid #0969da; padding: .7rem 1rem;
+        border-radius: 4px; margin: 1rem 0 1.5rem; }
+body.index-page { max-width: 1120px; }
+.toolbar { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: 1.25rem 0 1.75rem; }
+.toolbar input { flex: 1; min-width: 220px; padding: .7rem .9rem; border: 1px solid #d0d7de;
+                 border-radius: 8px; font-size: 1rem; }
+.btn { display: inline-block; padding: .7rem 1.1rem; background: #0969da; color: #fff;
+       border-radius: 8px; text-decoration: none; font-weight: 600; }
+.btn.secondary { background: #f6f8fa; color: #1f2328; border: 1px solid #d0d7de; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.25rem; margin: 1rem 0 2rem; }
+.card { display: block; border: 1px solid #d0d7de; border-radius: 12px; overflow: hidden;
+        text-decoration: none; color: inherit; background: #fff;
+        transition: transform .15s, box-shadow .15s, border-color .15s; }
+.card:hover, .card:focus { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(31,35,40,.12);
+                           border-color: #0969da; }
+.card img { display: block; width: 100%; aspect-ratio: 1200 / 630; object-fit: cover;
+            border-bottom: 1px solid #d0d7de; background: #0b1220; }
+.card-body { padding: 1rem 1.1rem 1.2rem; }
+.card h3 { margin: 0 0 .35rem; font-size: 1.15rem; }
+.card p { margin: 0; color: #57606a; font-size: .9rem; line-height: 1.5;
+          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.quick-links { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1rem 0 2rem; }
+.quick-links a { padding: .55rem .85rem; border: 1px solid #d0d7de; border-radius: 8px;
+                 text-decoration: none; background: #fff; }
+.quick-links a:hover { border-color: #0969da; }
+.section-title { margin-top: 2.5rem; }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+</style>
+<script>
+function toggleEmbed(btn) {
+  var wrap = btn.closest('.ts-wrap');
+  var slot = wrap && wrap.nextElementSibling;
+  if (slot && slot.classList && slot.classList.contains('embed-slot')) {
+    slot.remove();
+    return;
+  }
+  var frame = document.createElement('iframe');
+  frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(btn.dataset.video) +
+              '?start=' + encodeURIComponent(btn.dataset.start) + '&autoplay=1';
+  frame.title = 'Embedded video at ' + btn.dataset.start + ' seconds';
+  frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  frame.allowFullscreen = true;
+  frame.referrerPolicy = 'strict-origin-when-cross-origin';
+  var box = document.createElement('div');
+  box.className = 'embed-slot';
+  box.appendChild(frame);
+  wrap.insertAdjacentElement('afterend', box);
+}
+</script>
+</head>
+<body class="">
+<a class="back" href="../">&larr; Index</a>
+<h1 id="volume-order-flow-and-timing">Volume, Order Flow and Timing</h1>
+<p><em>Original study notes. The linked videos are the original sources and remain their authors' property. Click a timestamp to verify a claim at its source.</em></p>
+<h2 id="1-volume-as-the-primary-evidence">1. Volume as the primary evidence</h2>
+<p>The material treats volume as more reliable than chart narratives: price levels matter, but the size of the participation at those levels determines whether a move is real. Technical analysis is framed as betting analysis, not prediction.</p>
+<p>Order-flow data has to be observed continuously. A short visit once or twice a day misses the accumulation that matters. The setup described uses a dedicated machine or virtual private server running the tool for long stretches, and the suggested quote currency is USD rather than USDT.</p>
+<p>Sources: <em>How to Use Aggr.Trade — Volume to Predict the Market</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="EO6nFd5-Fl0" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=EO6nFd5-Fl0</a>); <em>How to Approach Timeframe</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=VoIr0w6l8gc&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="VoIr0w6l8gc" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=VoIr0w6l8gc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=VoIr0w6l8gc</a>).</p>
+<h2 id="2-thresholds">2. Thresholds</h2>
+<p>The 2024 setup uses a rolling fifteen-minute window — a continuous fifteen minutes of trading, not a fifteen-minute candle. The 2025 update raises the numbers:</p>
+<ul>
+<li>roughly <strong>50 million in five minutes</strong> is the minimum for meaningful activity;</li>
+<li>roughly <strong>300 million in fifteen minutes</strong> indicates good activity;</li>
+<li>one side exceeding the other by more than <strong>300 million</strong> indicates clear directional pressure;</li>
+<li>breaking a major resistance can require close to <strong>a billion</strong> in aggressive shorts, for example near ETH 4,250 or BTC 107.2.</li>
+</ul>
+<p>These are reference figures from the source videos, not universal constants; they are repeated here so the timestamp links can be used to check the context.</p>
+<p>Sources: <em>How to Use Aggr.Trade</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0&t=137s" target="_blank" rel="noopener">[02:17]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="EO6nFd5-Fl0" data-start="137">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=EO6nFd5-Fl0</a>); <em>How to Use Aggr.Trade — 2025 Update</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=KPD2ElzbQnc&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="KPD2ElzbQnc" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=KPD2ElzbQnc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KPD2ElzbQnc</a>).</p>
+<h2 id="3-delta-and-fake-moves">3. Delta and fake moves</h2>
+<p>The tape shows the battle between aggressive buyers and sellers. When shorts keep piling up while longs also build, the move is contested; a rapid change in the ratio — such as a reading dropping from the low hundreds to around seventy — is used as a signal to take profit.</p>
+<p>Absorption matters: if large volume hits a level without price moving, the level is being defended. Liquidation hunts push price through obvious clusters of stops before the move resumes.</p>
+<p>Sources: <em>How to Use Aggr.Trade</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0&t=716s" target="_blank" rel="noopener">[11:56]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="EO6nFd5-Fl0" data-start="716">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=EO6nFd5-Fl0</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="EO6nFd5-Fl0" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=EO6nFd5-Fl0</a>).</p>
+<h2 id="4-order-books-are-a-trap">4. Order books are a trap</h2>
+<p>The source material warns against using the order book as a primary signal: visible liquidity is often moved or spoofed, and traders who rely on it tend to be stopped out. The advice is to use executed volume and delta instead.</p>
+<p>Sources: <em>How to Use Aggr.Trade</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0&t=342s" target="_blank" rel="noopener">[05:42]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="EO6nFd5-Fl0" data-start="342">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=EO6nFd5-Fl0</a>).</p>
+<h2 id="5-altcoins-lead-eth-joins-bitcoin">5. Altcoins lead; ETH joins Bitcoin</h2>
+<p>Smaller coins are described as leading indicators: they tend to dump before Bitcoin and to sell off first when risk appetite changes. The 2025 update adds that volume leadership shifted toward Ethereum, so both BTC and ETH are checked before a timing decision.</p>
+<p>Sources: <em>How to Use Aggr.Trade — 2025 Update</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=KPD2ElzbQnc&t=128s" target="_blank" rel="noopener">[02:08]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="KPD2ElzbQnc" data-start="128">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=KPD2ElzbQnc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KPD2ElzbQnc</a>); <em>How to Use Aggr.Trade</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="EO6nFd5-Fl0" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=EO6nFd5-Fl0</a>).</p>
+<h2 id="6-worked-examples">6. Worked examples</h2>
+<p>A January 2024 BTC short around 40.4k/40.2k is used to show taking profit when the aggressive-volume ratio collapsed. A 2025 example marks the bottom of the Keltner/Watson area near 4,306 on the twenty-seven-minute chart and notes that a reversal would need a volume increase on both Bitcoin and Ethereum.</p>
+<p>Sources: <em>How to Use Aggr.Trade</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="EO6nFd5-Fl0" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=EO6nFd5-Fl0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=EO6nFd5-Fl0</a>); <em>How to Use Aggr.Trade — 2025 Update</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=KPD2ElzbQnc&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="KPD2ElzbQnc" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=KPD2ElzbQnc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KPD2ElzbQnc</a>).</p>
+<h2 id="7-timeframe-theory">7. Timeframe theory</h2>
+<p>The ladder is built on 3, 6 and 9, with the "times nine" rule connecting a candle to the timeframe above or below it (three three-minute candles make a nine-minute candle; three nine-minute candles make a twenty-seven-minute candle). The proposed translation factor between a timeframe and the next is roughly nine to twelve candles.</p>
+<p>Practical guidance is to start on higher timeframes and work down. A lower-timeframe signal is only an entry mechanism for a story already established above it.</p>
+<p>Sources: <em>How to Approach Timeframe</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=VoIr0w6l8gc&t=452s" target="_blank" rel="noopener">[07:32]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="VoIr0w6l8gc" data-start="452">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=VoIr0w6l8gc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=VoIr0w6l8gc</a>); <em>Stochastic RSI — Deeper Breakdown</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=iOXOgQCX5f4&t=465s" target="_blank" rel="noopener">[07:45]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="iOXOgQCX5f4" data-start="465">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=iOXOgQCX5f4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=iOXOgQCX5f4</a>).</p>
+<h2 id="8-writing-the-story">8. Writing the story</h2>
+<p>Before entering, write down: the goal for the trade, the side, the timeframe, the higher-timeframe context, the invalidation level, and the volume condition that would confirm or deny the idea. The oscillator's role is to describe energy — a fast stochastic can stay extended for around eight or nine candles, so extension alone is not a reversal signal.</p>
+<p>Sources: <em>How to Approach Timeframe</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=VoIr0w6l8gc&t=487s" target="_blank" rel="noopener">[08:07]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="VoIr0w6l8gc" data-start="487">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=VoIr0w6l8gc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=VoIr0w6l8gc</a>); <em>Part 1 — Timing Your Positions</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=NyGIkmMb-Sw&t=288s" target="_blank" rel="noopener">[04:48]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="NyGIkmMb-Sw" data-start="288">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=NyGIkmMb-Sw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=NyGIkmMb-Sw</a>).</p>
+<h2 id="9-timing-entries-and-exits">9. Timing entries and exits</h2>
+<p>A good entry is close to a structural level with room to place the stop beyond the noise. The material gives an example of a long near 3,292 with an invalidation near 3,381 and notes that an instrument like ETH can often be re-entered within a narrow price range, so waiting for the right tick is practical.</p>
+<p>Profit-taking is planned at the same time: close part of the position into strength and give the remainder a wider stop. Focus on one coin — the first step toward better timing is knowing one instrument well rather than watching ten.</p>
+<p>Sources: <em>Part 1 — Timing Your Positions</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=NyGIkmMb-Sw&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="NyGIkmMb-Sw" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=NyGIkmMb-Sw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=NyGIkmMb-Sw</a>); <em>Lesson 2 — Alpha That Will Save You Thousands</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=rLdY77E8KzA&t=1721s" target="_blank" rel="noopener">[28:41]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="rLdY77E8KzA" data-start="1721">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=rLdY77E8KzA" target="_blank" rel="noopener">https://www.youtube.com/watch?v=rLdY77E8KzA</a>); <em>Key Thoughts Going Into 2026</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=ti3JhXEY9UM&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="ti3JhXEY9UM" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=ti3JhXEY9UM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=ti3JhXEY9UM</a>).</p>
+<h2 id="10-practice-loop">10. Practice loop</h2>
+<p>Timing improves through experience, a journal, and controlled size. Record the reason for each entry and exit, review the outcome against the original story, and change one thing at a time.</p>
+<p>Sources: <em>Lesson 1 — Introduction to Trading</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LKJPwG14y2M&t=814s" target="_blank" rel="noopener">[13:34]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LKJPwG14y2M" data-start="814">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LKJPwG14y2M" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LKJPwG14y2M</a>); <em>The Key to Success</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=UfxEboq-tOM&t=1088s" target="_blank" rel="noopener">[18:08]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="UfxEboq-tOM" data-start="1088">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=UfxEboq-tOM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=UfxEboq-tOM</a>).</p>
+<footer style="margin-top:3rem;padding-top:1rem;border-top:1px solid #d0d7de;font-size:.85rem;color:#57606a">
+<a href="../llms.txt">llms.txt</a> · <a href="../">index</a> · original text released under CC0
+</footer>
+</body>
+</html>

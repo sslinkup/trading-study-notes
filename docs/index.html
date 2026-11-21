@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trading Study Notes</title>
+<meta name="description" content="Trading Study Notes: original study notes with clickable timestamp links to the original videos.">
+<meta name="author" content="Trading Study Notes">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<link rel="canonical" href="https://trading-study-notes.sanliurfa.workers.dev/">
+<link rel="alternate" type="text/plain" href="llms.txt">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Trading Study Notes", "description": "Trading Study Notes: original study notes with clickable timestamp links to the original videos.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Trading Study Notes"}, "publisher": {"@type": "Organization", "name": "Trading Study Notes"}, "mainEntityOfPage": "https://trading-study-notes.sanliurfa.workers.dev/", "inLanguage": "en"}</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trading Study Notes">
+<meta property="og:title" content="Trading Study Notes">
+<meta property="og:description" content="Trading Study Notes: original study notes with clickable timestamp links to the original videos.">
+<meta property="og:url" content="https://trading-study-notes.sanliurfa.workers.dev/">
+<meta property="og:image" content="https://trading-study-notes.sanliurfa.workers.dev/social-card.png">
+<meta property="og:image:alt" content="Trading Study Notes - free CC0 guide with clickable video timestamps">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://trading-study-notes.sanliurfa.workers.dev/social-card.png">
+<meta name="twitter:title" content="Trading Study Notes">
+<meta name="twitter:description" content="Trading Study Notes: original study notes with clickable timestamp links to the original videos.">
+<style>
+:root { color-scheme: light; }
+body { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 5rem;
+       font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       color: #1f2328; background: #fff; }
+a { color: #0969da; }
+a.back { display: inline-block; margin-bottom: 1.5rem; font-size: .9rem; }
+a.ts { color: #0a3069; background: #fff8c5; padding: 0 .25em; border-radius: 4px;
+       text-decoration: none; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+       font-size: .9em; white-space: nowrap; }
+a.ts:hover, a.ts:focus { text-decoration: underline; background: #ffe66b; }
+a.ext { word-break: break-all; }
+.ts-wrap { display: inline-flex; align-items: center; gap: .25rem; }
+button.play { border: 0; background: #0969da; color: #fff; border-radius: 50%; width: 19px;
+              height: 19px; padding: 0; font-size: 9px; line-height: 19px; cursor: pointer; }
+button.play:hover { background: #0550ae; }
+.embed-slot { display: block; margin: .75rem 0; }
+.embed-slot iframe { display: block; width: min(560px, 100%); aspect-ratio: 16 / 9;
+                     border: 0; border-radius: 10px; background: #000; }
+h1, h2, h3, h4 { line-height: 1.25; margin-top: 1.6em; }
+h1 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
+h2 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
+pre { background: #f6f8fa; padding: 1rem; overflow-x: auto; border-radius: 6px; }
+code { background: #f6f8fa; padding: .15em .4em; border-radius: 4px; font-size: .9em; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid #d0d7de; margin-left: 0; padding-left: 1rem; color: #57606a; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #d0d7de; padding: .4rem .7rem; text-align: left; }
+th { background: #f6f8fa; }
+img { max-width: 100%; }
+hr { border: 0; border-top: 1px solid #d0d7de; margin: 2rem 0; }
+.note { background: #ddf4ff; border-left: 4px solid #0969da; padding: .7rem 1rem;
+        border-radius: 4px; margin: 1rem 0 1.5rem; }
+body.index-page { max-width: 1120px; }
+.toolbar { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: 1.25rem 0 1.75rem; }
+.toolbar input { flex: 1; min-width: 220px; padding: .7rem .9rem; border: 1px solid #d0d7de;
+                 border-radius: 8px; font-size: 1rem; }
+.btn { display: inline-block; padding: .7rem 1.1rem; background: #0969da; color: #fff;
+       border-radius: 8px; text-decoration: none; font-weight: 600; }
+.btn.secondary { background: #f6f8fa; color: #1f2328; border: 1px solid #d0d7de; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.25rem; margin: 1rem 0 2rem; }
+.card { display: block; border: 1px solid #d0d7de; border-radius: 12px; overflow: hidden;
+        text-decoration: none; color: inherit; background: #fff;
+        transition: transform .15s, box-shadow .15s, border-color .15s; }
+.card:hover, .card:focus { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(31,35,40,.12);
+                           border-color: #0969da; }
+.card img { display: block; width: 100%; aspect-ratio: 1200 / 630; object-fit: cover;
+            border-bottom: 1px solid #d0d7de; background: #0b1220; }
+.card-body { padding: 1rem 1.1rem 1.2rem; }
+.card h3 { margin: 0 0 .35rem; font-size: 1.15rem; }
+.card p { margin: 0; color: #57606a; font-size: .9rem; line-height: 1.5;
+          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.quick-links { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1rem 0 2rem; }
+.quick-links a { padding: .55rem .85rem; border: 1px solid #d0d7de; border-radius: 8px;
+                 text-decoration: none; background: #fff; }
+.quick-links a:hover { border-color: #0969da; }
+.section-title { margin-top: 2.5rem; }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+</style>
+<script>
+function toggleEmbed(btn) {
+  var wrap = btn.closest('.ts-wrap');
+  var slot = wrap && wrap.nextElementSibling;
+  if (slot && slot.classList && slot.classList.contains('embed-slot')) {
+    slot.remove();
+    return;
+  }
+  var frame = document.createElement('iframe');
+  frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(btn.dataset.video) +
+              '?start=' + encodeURIComponent(btn.dataset.start) + '&autoplay=1';
+  frame.title = 'Embedded video at ' + btn.dataset.start + ' seconds';
+  frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  frame.allowFullscreen = true;
+  frame.referrerPolicy = 'strict-origin-when-cross-origin';
+  var box = document.createElement('div');
+  box.className = 'embed-slot';
+  box.appendChild(frame);
+  wrap.insertAdjacentElement('afterend', box);
+}
+</script>
+</head>
+<body class="index-page">
+<h1>Trading Study Notes</h1>
+<div class="note">Click any <strong>highlighted timestamp</strong> to open the video at that exact moment. No ads, no tracking, free to reuse.</div>
+<div class="toolbar">
+<input id="q" type="search" placeholder="Search pages..." aria-label="Search pages" oninput="filterCards()">
+<a class="btn" href="start_here">Start here</a>
+<a class="btn secondary" href="llms.txt">Plain text / AI</a>
+</div>
+<script>
+function filterCards(){const q=document.getElementById('q').value.toLowerCase().trim();document.querySelectorAll('.card,.quick-links a').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(q)?'':'none';});}
+</script>
+<h2 class="section-title">Study notes</h2>
+<div class="grid">
+<a class="card" href="notes/A_foundations"><img src="cards/A_foundations.png" alt="Foundations: Mindset, Bankroll and Journaling preview" loading="lazy"><div class="card-body"><h3>Foundations: Mindset, Bankroll and Journaling</h3><p>The starting idea is that the market is an arena in which the main opponent is the trader. Outcomes are uncertain, so the useful question is not &quot;will this…</p></div></a>
+<a class="card" href="notes/B_mistakes"><img src="cards/B_mistakes.png" alt="Mistakes, Anti-Patterns and Risk preview" loading="lazy"><div class="card-body"><h3>Mistakes, Anti-Patterns and Risk</h3><p>Most losses can be traced to a short list of behaviours rather than to a missing indicator: trading too large, trading too often, refusing to take profit…</p></div></a>
+<a class="card" href="notes/C_lessons"><img src="cards/C_lessons.png" alt="Trading Lessons and Philosophy preview" loading="lazy"><div class="card-body"><h3>Trading Lessons and Philosophy</h3><p>Trading is presented as an activity where making money is easier than keeping it. A correct guess is common; repeated correct decisions with controlled size…</p></div></a>
+<a class="card" href="notes/D_stochastic"><img src="cards/D_stochastic.png" alt="Naked RSI, Stochastic RSI and the NKED Method preview" loading="lazy"><div class="card-body"><h3>Naked RSI, Stochastic RSI and the NKED Method</h3><p>The method assumes the market is imperfect and heavily influenced by large participants. That is why it avoids precision: levels are zones, not exact numbers…</p></div></a>
+<a class="card" href="notes/E_indicators"><img src="cards/E_indicators.png" alt="Indicators and Chart Reading preview" loading="lazy"><div class="card-body"><h3>Indicators and Chart Reading</h3><p>Technical analysis is treated as a way of assigning probabilities, not as a way of knowing the future. The market can be read as close to a coin flip on any…</p></div></a>
+<a class="card" href="notes/F_volume_timing"><img src="cards/F_volume_timing.png" alt="Volume, Order Flow and Timing preview" loading="lazy"><div class="card-body"><h3>Volume, Order Flow and Timing</h3><p>The material treats volume as more reliable than chart narratives: price levels matter, but the size of the participation at those levels determines whether a…</p></div></a>
+</div>
+<h2 class="section-title">Other pages</h2>
+<div class="quick-links">
+<a href="license">License: CC0 1.0 Universal</a>
+<a href="notice">Attribution and scope</a>
+<a href="start_here">Trading Study Notes</a>
+</div>
+<footer style="margin-top:3rem;padding-top:1rem;border-top:1px solid #d0d7de;font-size:.85rem;color:#57606a">
+<a href="llms.txt">llms.txt</a> · <a href="./">index</a> · original text released under CC0
+</footer>
+</body>
+</html>

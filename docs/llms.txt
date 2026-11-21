@@ -1,0 +1,30 @@
+# Trading Study Notes
+
+> Original study notes summarising public trading lessons. Every timestamp in the linked pages opens the original video at that moment.
+
+These pages are licensed CC0 1.0. The linked videos are not included and remain the property of their creator.
+
+## Pages
+
+- [License: CC0 1.0 Universal](license): To the extent possible under law, the person who assembled these notes has waived all copyright and related or neighboring rights to the original text of this…
+  - Plain text: markdown/license.md
+- [Foundations: Mindset, Bankroll and Journaling](notes/A_foundations): The starting idea is that the market is an arena in which the main opponent is the trader. Outcomes are uncertain, so the useful question is not "will this…
+  - Plain text: markdown/notes/A_foundations.md
+- [Mistakes, Anti-Patterns and Risk](notes/B_mistakes): Most losses can be traced to a short list of behaviours rather than to a missing indicator: trading too large, trading too often, refusing to take profit…
+  - Plain text: markdown/notes/B_mistakes.md
+- [Trading Lessons and Philosophy](notes/C_lessons): Trading is presented as an activity where making money is easier than keeping it. A correct guess is common; repeated correct decisions with controlled size…
+  - Plain text: markdown/notes/C_lessons.md
+- [Naked RSI, Stochastic RSI and the NKED Method](notes/D_stochastic): The method assumes the market is imperfect and heavily influenced by large participants. That is why it avoids precision: levels are zones, not exact numbers…
+  - Plain text: markdown/notes/D_stochastic.md
+- [Indicators and Chart Reading](notes/E_indicators): Technical analysis is treated as a way of assigning probabilities, not as a way of knowing the future. The market can be read as close to a coin flip on any…
+  - Plain text: markdown/notes/E_indicators.md
+- [Volume, Order Flow and Timing](notes/F_volume_timing): The material treats volume as more reliable than chart narratives: price levels matter, but the size of the participation at those levels determines whether a…
+  - Plain text: markdown/notes/F_volume_timing.md
+- [Attribution and scope](notice): The material summarised here comes from the public teaching videos published by BareNakedCrypto on YouTube: https://www.youtube.com/@BareNakedCrypto Those…
+  - Plain text: markdown/notice.md
+- [Trading Study Notes](start_here): A free, self-contained study guide built from public trading lessons. It is written in original prose and released into the public domain — see License and…
+  - Plain text: markdown/start_here.md
+
+## Complete text
+
+- [llms-full.txt](llms-full.txt) — every page in one plain-text file

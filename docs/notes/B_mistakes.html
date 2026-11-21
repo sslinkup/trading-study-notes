@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mistakes, Anti-Patterns and Risk</title>
+<meta name="description" content="Most losses can be traced to a short list of behaviours rather than to a missing indicator: trading too large, trading too often, refusing to take profit…">
+<meta name="author" content="Trading Study Notes">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<link rel="canonical" href="https://trading-study-notes.sanliurfa.workers.dev/notes/B_mistakes">
+<link rel="alternate" type="text/plain" href="../llms.txt">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Mistakes, Anti-Patterns and Risk", "description": "Most losses can be traced to a short list of behaviours rather than to a missing indicator: trading too large, trading too often, refusing to take profit…", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Trading Study Notes"}, "publisher": {"@type": "Organization", "name": "Trading Study Notes"}, "mainEntityOfPage": "https://trading-study-notes.sanliurfa.workers.dev/notes/B_mistakes", "inLanguage": "en"}</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trading Study Notes">
+<meta property="og:title" content="Mistakes, Anti-Patterns and Risk">
+<meta property="og:description" content="Most losses can be traced to a short list of behaviours rather than to a missing indicator: trading too large, trading too often, refusing to take profit…">
+<meta property="og:url" content="https://trading-study-notes.sanliurfa.workers.dev/notes/B_mistakes">
+<meta property="og:image" content="https://trading-study-notes.sanliurfa.workers.dev/cards/B_mistakes.png">
+<meta property="og:image:alt" content="Trading Study Notes - free CC0 guide with clickable video timestamps">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://trading-study-notes.sanliurfa.workers.dev/cards/B_mistakes.png">
+<meta name="twitter:title" content="Mistakes, Anti-Patterns and Risk">
+<meta name="twitter:description" content="Most losses can be traced to a short list of behaviours rather than to a missing indicator: trading too large, trading too often, refusing to take profit…">
+<style>
+:root { color-scheme: light; }
+body { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 5rem;
+       font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       color: #1f2328; background: #fff; }
+a { color: #0969da; }
+a.back { display: inline-block; margin-bottom: 1.5rem; font-size: .9rem; }
+a.ts { color: #0a3069; background: #fff8c5; padding: 0 .25em; border-radius: 4px;
+       text-decoration: none; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+       font-size: .9em; white-space: nowrap; }
+a.ts:hover, a.ts:focus { text-decoration: underline; background: #ffe66b; }
+a.ext { word-break: break-all; }
+.ts-wrap { display: inline-flex; align-items: center; gap: .25rem; }
+button.play { border: 0; background: #0969da; color: #fff; border-radius: 50%; width: 19px;
+              height: 19px; padding: 0; font-size: 9px; line-height: 19px; cursor: pointer; }
+button.play:hover { background: #0550ae; }
+.embed-slot { display: block; margin: .75rem 0; }
+.embed-slot iframe { display: block; width: min(560px, 100%); aspect-ratio: 16 / 9;
+                     border: 0; border-radius: 10px; background: #000; }
+h1, h2, h3, h4 { line-height: 1.25; margin-top: 1.6em; }
+h1 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
+h2 { border-bottom: 1px solid #d0d7de; padding-bottom: .3em; }
+pre { background: #f6f8fa; padding: 1rem; overflow-x: auto; border-radius: 6px; }
+code { background: #f6f8fa; padding: .15em .4em; border-radius: 4px; font-size: .9em; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid #d0d7de; margin-left: 0; padding-left: 1rem; color: #57606a; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #d0d7de; padding: .4rem .7rem; text-align: left; }
+th { background: #f6f8fa; }
+img { max-width: 100%; }
+hr { border: 0; border-top: 1px solid #d0d7de; margin: 2rem 0; }
+.note { background: #ddf4ff; border-left: 4px solid #0969da; padding: .7rem 1rem;
+        border-radius: 4px; margin: 1rem 0 1.5rem; }
+body.index-page { max-width: 1120px; }
+.toolbar { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: 1.25rem 0 1.75rem; }
+.toolbar input { flex: 1; min-width: 220px; padding: .7rem .9rem; border: 1px solid #d0d7de;
+                 border-radius: 8px; font-size: 1rem; }
+.btn { display: inline-block; padding: .7rem 1.1rem; background: #0969da; color: #fff;
+       border-radius: 8px; text-decoration: none; font-weight: 600; }
+.btn.secondary { background: #f6f8fa; color: #1f2328; border: 1px solid #d0d7de; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.25rem; margin: 1rem 0 2rem; }
+.card { display: block; border: 1px solid #d0d7de; border-radius: 12px; overflow: hidden;
+        text-decoration: none; color: inherit; background: #fff;
+        transition: transform .15s, box-shadow .15s, border-color .15s; }
+.card:hover, .card:focus { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(31,35,40,.12);
+                           border-color: #0969da; }
+.card img { display: block; width: 100%; aspect-ratio: 1200 / 630; object-fit: cover;
+            border-bottom: 1px solid #d0d7de; background: #0b1220; }
+.card-body { padding: 1rem 1.1rem 1.2rem; }
+.card h3 { margin: 0 0 .35rem; font-size: 1.15rem; }
+.card p { margin: 0; color: #57606a; font-size: .9rem; line-height: 1.5;
+          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.quick-links { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1rem 0 2rem; }
+.quick-links a { padding: .55rem .85rem; border: 1px solid #d0d7de; border-radius: 8px;
+                 text-decoration: none; background: #fff; }
+.quick-links a:hover { border-color: #0969da; }
+.section-title { margin-top: 2.5rem; }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+</style>
+<script>
+function toggleEmbed(btn) {
+  var wrap = btn.closest('.ts-wrap');
+  var slot = wrap && wrap.nextElementSibling;
+  if (slot && slot.classList && slot.classList.contains('embed-slot')) {
+    slot.remove();
+    return;
+  }
+  var frame = document.createElement('iframe');
+  frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(btn.dataset.video) +
+              '?start=' + encodeURIComponent(btn.dataset.start) + '&autoplay=1';
+  frame.title = 'Embedded video at ' + btn.dataset.start + ' seconds';
+  frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  frame.allowFullscreen = true;
+  frame.referrerPolicy = 'strict-origin-when-cross-origin';
+  var box = document.createElement('div');
+  box.className = 'embed-slot';
+  box.appendChild(frame);
+  wrap.insertAdjacentElement('afterend', box);
+}
+</script>
+</head>
+<body class="">
+<a class="back" href="../">&larr; Index</a>
+<h1 id="mistakes-anti-patterns-and-risk">Mistakes, Anti-Patterns and Risk</h1>
+<p><em>Original study notes. The linked videos are the original sources and remain their authors' property. Click a timestamp to jump to the relevant moment.</em></p>
+<h2 id="1-the-common-failure-patterns">1. The common failure patterns</h2>
+<p>Most losses can be traced to a short list of behaviours rather than to a missing indicator: trading too large, trading too often, refusing to take profit, moving stops, and treating a lucky outcome as skill. The cure is unglamorous — know your limit, stay inside it, and collect data on yourself until the patterns are visible.</p>
+<p>The classic blow-up sequence is a strong run that inflates confidence, a period of careless sizing, a deep drawdown, and then a re-deposit made with the feeling that the market will eventually turn. Recognising the sequence early is more useful than predicting the market itself.</p>
+<p>Sources: <em>Things You Should Not Do in 2025</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=mPMn_g20SHU&t=305s" target="_blank" rel="noopener">[05:05]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="mPMn_g20SHU" data-start="305">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=mPMn_g20SHU" target="_blank" rel="noopener">https://www.youtube.com/watch?v=mPMn_g20SHU</a>); <em>Do Not Make These Mistakes Trading in 2026</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=CXwXDa-9YCs&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="CXwXDa-9YCs" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=CXwXDa-9YCs" target="_blank" rel="noopener">https://www.youtube.com/watch?v=CXwXDa-9YCs</a>).</p>
+<h2 id="2-bankroll-and-concentration">2. Bankroll and concentration</h2>
+<p>Start with an amount whose loss would not change your behaviour. If a small stake cannot be grown, a larger one will not fix the underlying problem. Keep bet size constant; changing size after a win or a loss is one of the fastest ways to turn a process into a gamble.</p>
+<p>Avoid using the whole account on a single idea. Full-size swings carry the same practical risk as high leverage, even without leverage. Over-diversification is the opposite error: holding dozens of coins makes it impossible to follow any of them. A handful of instruments that you know well is preferred.</p>
+<p>Sources: <em>Things You Should Not Do in 2025</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=mPMn_g20SHU&t=305s" target="_blank" rel="noopener">[05:05]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="mPMn_g20SHU" data-start="305">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=mPMn_g20SHU" target="_blank" rel="noopener">https://www.youtube.com/watch?v=mPMn_g20SHU</a>); <em>The Basic of TA — Setting Up Charts</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY&t=2316s" target="_blank" rel="noopener">[38:36]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="Zv8pXI_7VJY" data-start="2316">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=Zv8pXI_7VJY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zv8pXI_7VJY</a>).</p>
+<h2 id="3-accept-that-it-is-gambling">3. Accept that it is gambling</h2>
+<p>The source material is explicit: an entry is a bet on an unknown outcome. Calling it an investment or a profession does not change that. What can be improved is the quality of the bet — the size, the invalidation, the target, and the decision process — not the certainty of the result.</p>
+<p>Sources: <em>Lesson 1 — Introduction to Trading</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LKJPwG14y2M&t=211s" target="_blank" rel="noopener">[03:31]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LKJPwG14y2M" data-start="211">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LKJPwG14y2M" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LKJPwG14y2M</a>); <em>Things You Should Not Do in 2025</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=mPMn_g20SHU&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="mPMn_g20SHU" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=mPMn_g20SHU" target="_blank" rel="noopener">https://www.youtube.com/watch?v=mPMn_g20SHU</a>).</p>
+<h2 id="4-taking-profit">4. Taking profit</h2>
+<p>A winning position that becomes a losing one is a self-inflicted error. The recommended habit is to close part of a trade once it is in profit rather than waiting for a perfect exit. A partial close of roughly 60–70% is described as a reasonable default; 50% is more aggressive. Once part has been banked, the remaining position can be given a wider stop, because it is being carried by the result rather than by hope.</p>
+<p>Do not be angry about taking profit. There will be another trade. If a trade is closed too early, the response is to plan the partial close in advance next time, not to replay the decision emotionally.</p>
+<p>Sources: <em>Lesson 3 — Trade Strategy</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=8WAUnwtRBE8&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="8WAUnwtRBE8" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=8WAUnwtRBE8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=8WAUnwtRBE8</a>); <em>Lesson 5 — Leverage, Taking Profit, Thinking Ahead</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=UscLoywpZR0&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="UscLoywpZR0" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=UscLoywpZR0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=UscLoywpZR0</a>); <em>Key Thoughts Going Into 2026</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=ti3JhXEY9UM&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="ti3JhXEY9UM" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=ti3JhXEY9UM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=ti3JhXEY9UM</a>).</p>
+<h2 id="5-happy-decisions-and-emotional-leaks">5. Happy decisions and emotional leaks</h2>
+<p>The practical test for a decision is whether it leaves you calm. Trades opened out of boredom, revenge, or fear tend to share identifiable features — a familiar coin, a familiar time of day, a familiar mood. Find those recurring situations in the diary and remove them one at a time.</p>
+<p>The trader controls the button. No chart, indicator, or commenter places the order. Framing decisions as choices you own makes it easier to accept both good and bad outcomes as information rather than as verdicts on your worth.</p>
+<p>Sources: <em>Mastering Yourself</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=gJNO11fkK_Y&t=70s" target="_blank" rel="noopener">[01:10]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="gJNO11fkK_Y" data-start="70">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=gJNO11fkK_Y" target="_blank" rel="noopener">https://www.youtube.com/watch?v=gJNO11fkK_Y</a>); <em>Do Not Make These Mistakes Trading in 2026</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=CXwXDa-9YCs&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="CXwXDa-9YCs" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=CXwXDa-9YCs" target="_blank" rel="noopener">https://www.youtube.com/watch?v=CXwXDa-9YCs</a>).</p>
+<h2 id="6-stop-losses-as-invalidation">6. Stop losses as invalidation</h2>
+<p>A stop is not a dollar amount you are willing to lose; it is the price at which the reason for the trade stops being true. Placing it by account size rather than by chart structure is the most common mistake.</p>
+<p>Use recent swing wicks and key areas to decide where the idea breaks. If price moves above a wick that marked a rejection, the thesis is wrong and the exit is justified even if the loss feels large. Conversely, if the structure is intact, a stop placed only to soothe emotion is likely to be hit and reversed.</p>
+<p>Sources: <em>Guide to Stop Losses — Introduction</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=yNhmxEc6y5c&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="yNhmxEc6y5c" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=yNhmxEc6y5c" target="_blank" rel="noopener">https://www.youtube.com/watch?v=yNhmxEc6y5c</a>); <em>Key Thoughts Going Into 2026</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=ti3JhXEY9UM&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="ti3JhXEY9UM" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=ti3JhXEY9UM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=ti3JhXEY9UM</a>).</p>
+<h2 id="7-liquidity-and-stop-hunting">7. Liquidity and stop hunting</h2>
+<p>Market makers push price toward obvious clusters of stops. Horizontal levels that everyone can see attract price, which is why stops placed just beyond a well-marked level are often swept before the move continues. Draw the level, but expect the wick through it.</p>
+<p>Sources: <em>Do Not Make These Mistakes Trading in 2026</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=CXwXDa-9YCs&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="CXwXDa-9YCs" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=CXwXDa-9YCs" target="_blank" rel="noopener">https://www.youtube.com/watch?v=CXwXDa-9YCs</a>); <em>How to Use Aggr.Trade (2025)</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=KPD2ElzbQnc&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="KPD2ElzbQnc" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=KPD2ElzbQnc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KPD2ElzbQnc</a>).</p>
+<h2 id="8-entry-timing-and-overtrading">8. Entry timing and overtrading</h2>
+<p>Entering late is a recurring error: the trade is opened after the move has already happened, which leaves no room for the stop. Wait for the pullback or the confirmation the story requires.</p>
+<p>Set a daily limit on attempts. Three unsuccessful entries in a session is a common stopping point. Continuing beyond that is usually an emotional decision rather than a technical one.</p>
+<p>Sources: <em>Part 1 — Timing Your Positions</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=NyGIkmMb-Sw&t=288s" target="_blank" rel="noopener">[04:48]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="NyGIkmMb-Sw" data-start="288">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=NyGIkmMb-Sw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=NyGIkmMb-Sw</a>); <em>Lesson 3 — Trade Strategy</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=8WAUnwtRBE8&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="8WAUnwtRBE8" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=8WAUnwtRBE8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=8WAUnwtRBE8</a>).</p>
+<h2 id="9-keep-the-toolkit-small">9. Keep the toolkit small</h2>
+<p>A recurring warning is against indicator collecting. The core toolkit is RSI, stochastic RSI, a few EMAs, Ichimoku, and Keltner/Watson levels — used together to tell one coherent story. Adding more tools usually adds more excuses, not more edge. The three-minute chart in particular is overused; higher timeframes provide the context that makes a lower-timeframe entry meaningful.</p>
+<p>Sources: <em>Lesson Number 5 — Stochastic RSI and Keltner Channels</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=7MmCcxadAwQ&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="7MmCcxadAwQ" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=7MmCcxadAwQ" target="_blank" rel="noopener">https://www.youtube.com/watch?v=7MmCcxadAwQ</a>); <em>How to Approach Timeframe</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=VoIr0w6l8gc&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="VoIr0w6l8gc" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=VoIr0w6l8gc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=VoIr0w6l8gc</a>).</p>
+<h2 id="10-study-security-and-adaptability">10. Study, security and adaptability</h2>
+<p>Journal the reason for every decision, including the ones you are unsure about. Do not copy another trader's entries without understanding the invalidation; a copied position cannot be managed when the story changes. Keep exchange balances low and hold long-term assets in self-custody.</p>
+<p>Finally, stay willing to be wrong about a market view. The willingness to update a thesis is what separates a flexible trader from one who keeps forcing an outdated story onto new price action.</p>
+<p>Sources: <em>The Key to Success</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=UfxEboq-tOM&t=1088s" target="_blank" rel="noopener">[18:08]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="UfxEboq-tOM" data-start="1088">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=UfxEboq-tOM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=UfxEboq-tOM</a>); <em>Key Thoughts Going Into 2026</em> (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=ti3JhXEY9UM&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="ti3JhXEY9UM" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=ti3JhXEY9UM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=ti3JhXEY9UM</a>).</p>
+<footer style="margin-top:3rem;padding-top:1rem;border-top:1px solid #d0d7de;font-size:.85rem;color:#57606a">
+<a href="../llms.txt">llms.txt</a> · <a href="../">index</a> · original text released under CC0
+</footer>
+</body>
+</html>

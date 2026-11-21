@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#111c33"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g stroke="#22304a" stroke-width="1" opacity="0.55">
+    <path d="M0 105H1200 M0 210H1200 M0 315H1200 M0 420H1200 M0 525H1200"/>
+    <path d="M200 0V630 M400 0V630 M600 0V630 M800 0V630 M1000 0V630"/>
+  </g>
+  <rect x="70" y="72" width="146" height="34" rx="17" fill="#34d399" opacity="0.14"/>
+  <text x="143" y="95" fill="#34d399" font-family="Helvetica, Arial, sans-serif"
+        font-size="16" font-weight="bold" text-anchor="middle" letter-spacing="2">NOTE 06 / 06</text>
+  <text x="70" y="196" fill="#f8fafc" font-family="Helvetica, Arial, sans-serif" font-size="64" font-weight="bold" letter-spacing="-1">VOLUME</text><text x="70" y="272" fill="#f8fafc" font-family="Helvetica, Arial, sans-serif" font-size="64" font-weight="bold" letter-spacing="-1">&amp; TIMING</text>
+  <text x="72" y="362" fill="#94a3b8" font-family="Helvetica, Arial, sans-serif"
+        font-size="27">Order flow, timeframes and entries</text>
+  <text x="72" y="406" fill="#64748b" font-family="Helvetica, Arial, sans-serif"
+        font-size="19">Click any timestamp to jump to the source video</text>
+  <g transform="translate(690,110)">
+    <rect x="0" y="0" width="440" height="320" rx="18" fill="#0e1a30" stroke="#1e3a5f"/>
+    <g transform="translate(10,10)">
+    <g fill="#34d399" opacity="0.85">
+      <rect x="40" y="220" width="30" height="70" rx="4"/>
+      <rect x="90" y="180" width="30" height="110" rx="4"/>
+      <rect x="140" y="200" width="30" height="90" rx="4"/>
+      <rect x="190" y="130" width="30" height="160" rx="4"/>
+      <rect x="240" y="160" width="30" height="130" rx="4"/>
+      <rect x="290" y="90" width="30" height="200" rx="4"/>
+      <rect x="340" y="120" width="30" height="170" rx="4"/>
+    </g>
+    <g fill="#fb7185" opacity="0.5">
+      <rect x="40" y="180" width="30" height="40" rx="4"/>
+      <rect x="140" y="165" width="30" height="35" rx="4"/>
+      <rect x="240" y="125" width="30" height="35" rx="4"/>
+    </g></g>
+  </g>
+  <g transform="translate(690,472)">
+    <line x1="8" y1="34" x2="424" y2="34" stroke="#334155" stroke-width="3"/>
+    <line x1="8" y1="34" x2="250" y2="34" stroke="#34d399" stroke-width="3"/>
+    <g fill="#34d399"><circle cx="8" cy="34" r="8"/><circle cx="190" cy="34" r="8"/>
+      <circle cx="250" cy="34" r="8"/></g>
+    <circle cx="250" cy="34" r="15" fill="none" stroke="#34d399" opacity="0.4" stroke-width="2"/>
+    <g fill="#64748b" font-family="Helvetica, Arial, sans-serif" font-size="16">
+      <text x="8" y="70" text-anchor="middle">00:00</text>
+      <text x="190" y="70" text-anchor="middle">01:57</text>
+      <text x="250" y="70" text-anchor="middle">03:51</text>
+    </g>
+  </g>
+  <line x1="70" y1="555" x2="1130" y2="555" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="70" y="592" fill="#64748b" font-family="Helvetica, Arial, sans-serif"
+        font-size="19">trading-study-notes.sanliurfa.workers.dev</text>
+  <text x="1130" y="592" fill="#475569" font-family="Helvetica, Arial, sans-serif"
+        font-size="17" text-anchor="end">independent study guide - not affiliated with the creator</text>
+</svg>

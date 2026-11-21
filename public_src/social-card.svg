@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#111c33"/>
+    </linearGradient>
+    <linearGradient id="chart" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g stroke="#22304a" stroke-width="1" opacity="0.55">
+    <path d="M0 105H1200 M0 210H1200 M0 315H1200 M0 420H1200 M0 525H1200"/>
+    <path d="M200 0V630 M400 0V630 M600 0V630 M800 0V630 M1000 0V630"/>
+  </g>
+
+  <rect x="70" y="72" width="86" height="34" rx="17" fill="#34d399" opacity="0.14"/>
+  <text x="113" y="95" fill="#34d399" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" letter-spacing="2">CC0</text>
+
+  <text x="70" y="215" fill="#f8fafc" font-family="Helvetica, Arial, sans-serif" font-size="69" font-weight="bold" letter-spacing="-1">TRADING</text>
+  <text x="70" y="292" fill="#f8fafc" font-family="Helvetica, Arial, sans-serif" font-size="69" font-weight="bold" letter-spacing="-1">STUDY NOTES</text>
+  <text x="72" y="348" fill="#94a3b8" font-family="Helvetica, Arial, sans-serif" font-size="27">Free guide - click any timestamp</text>
+  <text x="72" y="392" fill="#64748b" font-family="Helvetica, Arial, sans-serif" font-size="20">Six topic notes - jump to the exact moment in the source video</text>
+
+  <g transform="translate(690,110)">
+    <rect x="0" y="0" width="440" height="320" rx="18" fill="#0e1a30" stroke="#1e3a5f"/>
+    <path d="M20 250 L80 210 L140 228 L200 160 L260 185 L320 110 L420 70 L420 290 L20 290 Z" fill="url(#chart)"/>
+    <polyline points="20,250 80,210 140,228 200,160 260,185 320,110 420,70" fill="none" stroke="#22d3ee" stroke-width="3" stroke-linejoin="round"/>
+    <g fill="#34d399">
+      <rect x="48" y="212" width="16" height="46" rx="3"/>
+      <rect x="108" y="196" width="16" height="62" rx="3"/>
+      <rect x="168" y="150" width="16" height="72" rx="3"/>
+      <rect x="228" y="168" width="16" height="60" rx="3"/>
+      <rect x="288" y="100" width="16" height="74" rx="3"/>
+      <rect x="348" y="78" width="16" height="66" rx="3"/>
+    </g>
+    <g stroke="#34d399" stroke-width="2">
+      <path d="M56 198V270 M116 182V270 M176 136V270 M236 152V270 M296 84V270 M356 62V270"/>
+    </g>
+    <circle cx="420" cy="70" r="8" fill="#f8fafc"/>
+    <circle cx="420" cy="70" r="16" fill="none" stroke="#f8fafc" opacity="0.35" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(690,472)">
+    <line x1="8" y1="34" x2="424" y2="34" stroke="#334155" stroke-width="3"/>
+    <line x1="8" y1="34" x2="250" y2="34" stroke="#34d399" stroke-width="3"/>
+    <g fill="#34d399">
+      <circle cx="8" cy="34" r="8"/>
+      <circle cx="190" cy="34" r="8"/>
+      <circle cx="250" cy="34" r="8"/>
+    </g>
+    <circle cx="250" cy="34" r="15" fill="none" stroke="#34d399" opacity="0.4" stroke-width="2"/>
+    <g fill="#64748b" font-family="Helvetica, Arial, sans-serif" font-size="16">
+      <text x="8" y="70" text-anchor="middle">00:00</text>
+      <text x="190" y="70" text-anchor="middle">01:57</text>
+      <text x="250" y="70" text-anchor="middle">03:51</text>
+    </g>
+  </g>
+
+  <line x1="70" y1="555" x2="1130" y2="555" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="70" y="592" fill="#64748b" font-family="Helvetica, Arial, sans-serif" font-size="19">trading-study-notes.sanliurfa.workers.dev</text>
+  <text x="1130" y="592" fill="#475569" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="end">independent study guide - not affiliated with the creator</text>
+</svg>

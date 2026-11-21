@@ -1,0 +1,38 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y libcairo2
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt cairosvg
+
+      - name: Build site
+        run: |
+          python tools/make_note_cards.py docs/cards
+          python tools/md2html.py public_src docs "Trading Study Notes"
+          cp public_src/license.md docs/LICENSE.txt
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
