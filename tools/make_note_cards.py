@@ -23,6 +23,8 @@ CARDS = [
      "EMAs, Ichimoku, Keltner and volume clusters", "indicators", "#a78bfa"),
     ("F_volume_timing", "06", ["VOLUME", "& TIMING"],
      "Order flow, timeframes and entries", "volume", "#34d399"),
+    ("G_patrick_nill", "07", ["PATRICK", "NILL"],
+     "Championship range and order-flow methods", "lessons", "#fbbf24"),
 ]
 
 
@@ -110,7 +112,7 @@ def card_svg(num, title_lines, subtitle, kind, accent):
   </g>
   <rect x="70" y="72" width="146" height="34" rx="17" fill="{accent}" opacity="0.14"/>
   <text x="143" y="95" fill="{accent}" font-family="Helvetica, Arial, sans-serif"
-        font-size="16" font-weight="bold" text-anchor="middle" letter-spacing="2">NOTE {num} / 06</text>
+        font-size="16" font-weight="bold" text-anchor="middle" letter-spacing="2">NOTE {num} / 07</text>
   {lines}
   <text x="72" y="{sub_y}" fill="#94a3b8" font-family="Helvetica, Arial, sans-serif"
         font-size="27">{html.escape(subtitle)}</text>

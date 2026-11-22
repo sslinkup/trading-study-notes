@@ -4,7 +4,7 @@
 
 ## What is in it
 
-- Six topic notes, a landing page, a license page, and an attribution page.
+- Seven topic notes, a landing page, a license page, and an attribution page.
 - 148 clickable timestamps that open the source video at the exact moment.
 - Per-page descriptions, canonical URLs, Open Graph and Twitter cards, plus JSON-LD `Article` metadata.
 - `sitemap.xml` and `robots.txt` (with explicit allow rules for major AI crawlers).

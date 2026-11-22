@@ -24,6 +24,7 @@ This is an **independent** study guide. It is not affiliated with, endorsed by, 
 4. [Naked RSI, stochastic RSI and the NKED method](https://trading-study-notes.sanliurfa.workers.dev/notes/D_stochastic)
 5. [Indicators and chart reading](https://trading-study-notes.sanliurfa.workers.dev/notes/E_indicators)
 6. [Volume, order flow and timing](https://trading-study-notes.sanliurfa.workers.dev/notes/F_volume_timing)
+7. [Patrick Nill — championship methods](https://trading-study-notes.sanliurfa.workers.dev/notes/G_patrick_nill)
 
 ## Build locally
 

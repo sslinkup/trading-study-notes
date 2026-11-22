@@ -2,9 +2,11 @@
 
 ## Source of the ideas
 
-The material summarised here comes from the public teaching videos published by **BareNakedCrypto** on YouTube:
+The material summarised here comes from public teaching videos published by **BareNakedCrypto** on YouTube:
 
 https://www.youtube.com/@BareNakedCrypto
+
+Additional guest-source summaries cover interviews with trading champion **Patrick Nill**, published by IQCapital, Titans Of Tomorrow and KavexTrade. Those videos and their transcripts are also not included on this site and remain the property of their respective publishers. Each summary links back to the exact segment it describes.
 
 Those videos, their transcripts, and their visual content are not included on this site and remain the property of their creator. Every page links back to the relevant moment in the original video so that the source can be verified directly.
 

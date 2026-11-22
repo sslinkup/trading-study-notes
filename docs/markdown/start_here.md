@@ -16,6 +16,7 @@ A free, self-contained study guide built from public trading lessons. It is writ
 4. [Naked RSI, stochastic RSI and NKED](notes/D_stochastic.md) — exact levels and settings, divergence, multi-timeframe method and a step-by-step workflow.
 5. [Indicators and chart reading](notes/E_indicators.md) — levels and volume clusters, EMAs, Ichimoku, Keltner/Watson and how the tools combine.
 6. [Volume, order flow and timing](notes/F_volume_timing.md) — volume thresholds, delta, order-book traps, timeframe theory and entry timing.
+7. [Patrick Nill — championship methods](notes/G_patrick_nill.md) — four public interviews on range models, PBD, market profile and risk.
 
 ## A note on ownership
 

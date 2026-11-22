@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patrick Nill — Championship Methods</title>
+<meta name="description" content="Original study notes based on four public interviews. These are independent summaries, not transcripts, and the videos belong to their publishers. Patrick Nill…">
+<meta name="author" content="Trading Study Notes">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<link rel="canonical" href="https://trading-study-notes.sanliurfa.workers.dev/notes/G_patrick_nill">
+<link rel="alternate" type="text/plain" href="../llms.txt">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Patrick Nill — Championship Methods", "description": "Original study notes based on four public interviews. These are independent summaries, not transcripts, and the videos belong to their publishers. Patrick Nill…", "datePublished": "2026-11-22", "dateModified": "2026-11-22", "author": {"@type": "Organization", "name": "Trading Study Notes"}, "publisher": {"@type": "Organization", "name": "Trading Study Notes"}, "mainEntityOfPage": "https://trading-study-notes.sanliurfa.workers.dev/notes/G_patrick_nill", "inLanguage": "en"}</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trading Study Notes">
+<meta property="og:title" content="Patrick Nill — Championship Methods">
+<meta property="og:description" content="Original study notes based on four public interviews. These are independent summaries, not transcripts, and the videos belong to their publishers. Patrick Nill…">
+<meta property="og:url" content="https://trading-study-notes.sanliurfa.workers.dev/notes/G_patrick_nill">
+<meta property="og:image" content="https://trading-study-notes.sanliurfa.workers.dev/cards/G_patrick_nill.png">
+<meta property="og:image:alt" content="Trading Study Notes - free CC0 guide with clickable video timestamps">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://trading-study-notes.sanliurfa.workers.dev/cards/G_patrick_nill.png">
+<meta name="twitter:title" content="Patrick Nill — Championship Methods">
+<meta name="twitter:description" content="Original study notes based on four public interviews. These are independent summaries, not transcripts, and the videos belong to their publishers. Patrick Nill…">
+<script>
+(function() {
+  function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+  function apply(dark) {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('study-theme', dark ? 'dark' : 'light'); } catch (e) {}
+    var b = document.getElementById('themeToggle');
+    if (b) {
+      b.textContent = dark ? '☀' : '☾';
+      b.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+      b.setAttribute('aria-label', b.title);
+    }
+  }
+  try {
+    var saved = localStorage.getItem('study-theme');
+    var dark = saved === 'dark' ||
+      (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    apply(dark);
+  } catch (e) { apply(false); }
+  document.addEventListener('DOMContentLoaded', function() {
+    var b = document.getElementById('themeToggle');
+    if (b) b.addEventListener('click', function() { apply(!isDark()); });
+  });
+})();
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #fff; --fg: #1f2328; --muted: #57606a; --border: #d0d7de; --subtle: #f6f8fa;
+  --link: #0969da; --link-strong: #0a3069; --ts-bg: #fff8c5; --ts-hover: #ffe66b;
+  --note-bg: #ddf4ff; --card-bg: #fff; --btn: #0969da; --btn-hover: #0550ae;
+  --btn2-bg: #f6f8fa; --btn2-fg: #1f2328; --shadow: rgba(31,35,40,.12);
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d1117; --fg: #e6edf3; --muted: #9da7b3; --border: #30363d; --subtle: #161b22;
+  --link: #58a6ff; --link-strong: #79c0ff; --ts-bg: #3b2f00; --ts-hover: #5a4600;
+  --note-bg: #0d2b45; --card-bg: #161b22; --btn: #1f6feb; --btn-hover: #388bfd;
+  --btn2-bg: #21262d; --btn2-fg: #e6edf3; --shadow: rgba(0,0,0,.5);
+}
+body { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 5rem;
+       font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       color: var(--fg); background: var(--bg); }
+button.theme-toggle { position: fixed; top: 1rem; right: 1rem; z-index: 20; width: 40px;
+  height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--card-bg);
+  color: var(--fg); font-size: 18px; cursor: pointer; box-shadow: 0 2px 8px var(--shadow); }
+button.theme-toggle:hover { border-color: var(--link); }
+a { color: var(--link); }
+a.back { display: inline-block; margin-bottom: 1.5rem; font-size: .9rem; }
+a.ts { color: var(--link-strong); background: var(--ts-bg); padding: 0 .25em; border-radius: 4px;
+       text-decoration: none; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+       font-size: .9em; white-space: nowrap; }
+a.ts:hover, a.ts:focus { text-decoration: underline; background: var(--ts-hover); }
+a.ext { word-break: break-all; }
+.ts-wrap { display: inline-flex; align-items: center; gap: .25rem; }
+button.play { border: 0; background: var(--btn); color: #fff; border-radius: 50%; width: 19px;
+              height: 19px; padding: 0; font-size: 9px; line-height: 19px; cursor: pointer; }
+button.play:hover { background: var(--btn-hover); }
+.embed-slot { display: block; margin: .75rem 0; }
+.embed-slot iframe { display: block; width: min(560px, 100%); aspect-ratio: 16 / 9;
+                     border: 0; border-radius: 10px; background: #000; }
+h1, h2, h3, h4 { line-height: 1.25; margin-top: 1.6em; }
+h1 { border-bottom: 1px solid var(--border); padding-bottom: .3em; }
+h2 { border-bottom: 1px solid var(--border); padding-bottom: .3em; }
+pre { background: var(--subtle); padding: 1rem; overflow-x: auto; border-radius: 6px; }
+code { background: var(--subtle); padding: .15em .4em; border-radius: 4px; font-size: .9em; }
+pre code { background: none; padding: 0; }
+blockquote { border-left: 4px solid var(--border); margin-left: 0; padding-left: 1rem; color: var(--muted); }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid var(--border); padding: .4rem .7rem; text-align: left; }
+th { background: var(--subtle); }
+img { max-width: 100%; }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
+.note { background: var(--note-bg); border-left: 4px solid var(--link); padding: .7rem 1rem;
+        border-radius: 4px; margin: 1rem 0 1.5rem; }
+body.index-page { max-width: 1120px; }
+.toolbar { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin: 1.25rem 0 1.75rem; }
+.toolbar input { flex: 1; min-width: 220px; padding: .7rem .9rem; border: 1px solid var(--border);
+                 border-radius: 8px; font-size: 1rem; background: var(--card-bg); color: var(--fg); }
+.btn { display: inline-block; padding: .7rem 1.1rem; background: var(--btn); color: #fff;
+       border-radius: 8px; text-decoration: none; font-weight: 600; }
+.btn.secondary { background: var(--btn2-bg); color: var(--btn2-fg); border: 1px solid var(--border); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.25rem; margin: 1rem 0 2rem; }
+.card { display: block; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+        text-decoration: none; color: inherit; background: var(--card-bg);
+        transition: transform .15s, box-shadow .15s, border-color .15s; }
+.card:hover, .card:focus { transform: translateY(-2px); box-shadow: 0 6px 18px var(--shadow);
+                           border-color: var(--link); }
+.card img { display: block; width: 100%; aspect-ratio: 1200 / 630; object-fit: cover;
+            border-bottom: 1px solid var(--border); background: #0b1220; }
+.card-body { padding: 1rem 1.1rem 1.2rem; }
+.card h3 { margin: 0 0 .35rem; font-size: 1.15rem; }
+.card p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.5;
+          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.quick-links { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1rem 0 2rem; }
+.quick-links a { padding: .55rem .85rem; border: 1px solid var(--border); border-radius: 8px;
+                 text-decoration: none; background: var(--card-bg); }
+.quick-links a:hover { border-color: var(--link); }
+.section-title { margin-top: 2.5rem; }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+</style>
+<script>
+function toggleEmbed(btn) {
+  var wrap = btn.closest('.ts-wrap');
+  var slot = wrap && wrap.nextElementSibling;
+  if (slot && slot.classList && slot.classList.contains('embed-slot')) {
+    slot.remove();
+    return;
+  }
+  var frame = document.createElement('iframe');
+  frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(btn.dataset.video) +
+              '?start=' + encodeURIComponent(btn.dataset.start) + '&autoplay=1';
+  frame.title = 'Embedded video at ' + btn.dataset.start + ' seconds';
+  frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  frame.allowFullscreen = true;
+  frame.referrerPolicy = 'strict-origin-when-cross-origin';
+  var box = document.createElement('div');
+  box.className = 'embed-slot';
+  box.appendChild(frame);
+  wrap.insertAdjacentElement('afterend', box);
+}
+</script>
+</head>
+<body class="">
+<button class="theme-toggle" id="themeToggle" type="button" title="Toggle dark mode"
+        aria-label="Toggle dark mode">☾</button>
+<a class="back" href="../">&larr; Index</a>
+<h1 id="patrick-nill-championship-methods">Patrick Nill — Championship Methods</h1>
+<p><em>Original study notes based on four public interviews. These are independent summaries, not transcripts, and the videos belong to their publishers. Click a timestamp to check the claim at its source.</em></p>
+<p>Patrick Nill is a multiple-time Robbins World Cup trading champion. The four sources below cover different angles of the same approach: a whiteboard walkthrough of his range model, a long career interview, a live chart session, and a discussion of why he moved from scalping to swing trading.</p>
+<h2 id="1-the-3-touch-range-model">1. The 3-touch range model</h2>
+<p>The first session is a whiteboard explanation of a range-breakout method. The core idea is to define fair value and the boundaries of the range around it, then wait for repeated tests before treating a breakout as meaningful. The model is described in terms of fair value to fair value with roughly a three-to-one relationship between the range and the proposed move.</p>
+<p>The "three touch" idea is a readiness rule: a range that has been tested several times is more interesting than one that has only been touched once. The trader is looking for a level that has been accepted repeatedly before committing to a breakout.</p>
+<p>Stop placement is treated as a discipline issue. The cautionary example in the session is an oil trade that reached minus 42, used to make the point that a stop should be decided in advance and not moved once the trade is live.</p>
+<p>Sources: <em>12x CHAMPION Reveals His "3-TOUCH" Strategy</em> — IQCapital (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2hyqdVF0JVk&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2hyqdVF0JVk" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2hyqdVF0JVk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2hyqdVF0JVk</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2hyqdVF0JVk&t=156s" target="_blank" rel="noopener">[02:36]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2hyqdVF0JVk" data-start="156">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2hyqdVF0JVk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2hyqdVF0JVk</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2hyqdVF0JVk&t=1177s" target="_blank" rel="noopener">[19:37]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2hyqdVF0JVk" data-start="1177">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2hyqdVF0JVk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2hyqdVF0JVk</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2hyqdVF0JVk&t=1998s" target="_blank" rel="noopener">[33:18]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2hyqdVF0JVk" data-start="1998">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2hyqdVF0JVk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2hyqdVF0JVk</a>).</p>
+<h2 id="2-background-and-core-principles">2. Background and core principles</h2>
+<p>A longer interview traces the path from an early trade background into professional competition. Themes include the role of a mentor, the difference between surface-level psychology and genuinely changing behaviour, and the need to build a strategy that fits the individual trader rather than copying someone else's.</p>
+<p>The interview also covers how markets have changed since the late 2000s, the principles of supply and demand, market profiling and volume analysis, and how separate tools can be combined into a coherent trading structure. Changing liquidity is discussed as a reason to keep the framework adaptable rather than rigid.</p>
+<p>Sources: <em>The LEGENDARY 9 Time Trading World Cup Champion - Patrick Nill</em> — Titans Of Tomorrow (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=_5fP-jFV1tw&t=80s" target="_blank" rel="noopener">[01:20]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="_5fP-jFV1tw" data-start="80">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=_5fP-jFV1tw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_5fP-jFV1tw</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=_5fP-jFV1tw&t=270s" target="_blank" rel="noopener">[04:30]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="_5fP-jFV1tw" data-start="270">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=_5fP-jFV1tw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_5fP-jFV1tw</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=_5fP-jFV1tw&t=540s" target="_blank" rel="noopener">[09:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="_5fP-jFV1tw" data-start="540">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=_5fP-jFV1tw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_5fP-jFV1tw</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=_5fP-jFV1tw&t=810s" target="_blank" rel="noopener">[13:30]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="_5fP-jFV1tw" data-start="810">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=_5fP-jFV1tw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_5fP-jFV1tw</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=_5fP-jFV1tw&t=1080s" target="_blank" rel="noopener">[18:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="_5fP-jFV1tw" data-start="1080">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=_5fP-jFV1tw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_5fP-jFV1tw</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=_5fP-jFV1tw&t=1350s" target="_blank" rel="noopener">[22:30]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="_5fP-jFV1tw" data-start="1350">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=_5fP-jFV1tw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_5fP-jFV1tw</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=_5fP-jFV1tw&t=1680s" target="_blank" rel="noopener">[28:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="_5fP-jFV1tw" data-start="1680">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=_5fP-jFV1tw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_5fP-jFV1tw</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=_5fP-jFV1tw&t=1920s" target="_blank" rel="noopener">[32:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="_5fP-jFV1tw" data-start="1920">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=_5fP-jFV1tw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_5fP-jFV1tw</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=_5fP-jFV1tw&t=2160s" target="_blank" rel="noopener">[36:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="_5fP-jFV1tw" data-start="2160">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=_5fP-jFV1tw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_5fP-jFV1tw</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=_5fP-jFV1tw&t=2400s" target="_blank" rel="noopener">[40:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="_5fP-jFV1tw" data-start="2400">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=_5fP-jFV1tw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_5fP-jFV1tw</a>).</p>
+<h2 id="3-live-chart-breakdown">3. Live chart breakdown</h2>
+<p>A separate session moves from conversation to chart work. It opens with what a champion does that most traders never see, and argues that hard work in the wrong direction is still wasted effort. The approach is described as discretionary: the trader reads the market rather than applying a purely mechanical rule set.</p>
+<p>A useful distinction is made between competing for a championship and trading private capital — two different games with different constraints. A historical oil crash that traded below zero is used to introduce a one-percent risk idea, and the session identifies a common beginner mistake before moving into live chart analysis.</p>
+<p>The chart portion covers impulse and range, a PBD model, volume and market-profile value areas, then stop placement, targets and trade management. It closes on staying calm under pressure.</p>
+<p>Sources: <em>Best Trader in the World Reveals His Exact Strategy LIVE on Charts</em> — IQCapital (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2ZmIn274eds&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2ZmIn274eds" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2ZmIn274eds" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2ZmIn274eds</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2ZmIn274eds&t=120s" target="_blank" rel="noopener">[02:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2ZmIn274eds" data-start="120">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2ZmIn274eds" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2ZmIn274eds</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2ZmIn274eds&t=300s" target="_blank" rel="noopener">[05:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2ZmIn274eds" data-start="300">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2ZmIn274eds" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2ZmIn274eds</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2ZmIn274eds&t=480s" target="_blank" rel="noopener">[08:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2ZmIn274eds" data-start="480">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2ZmIn274eds" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2ZmIn274eds</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2ZmIn274eds&t=660s" target="_blank" rel="noopener">[11:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2ZmIn274eds" data-start="660">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2ZmIn274eds" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2ZmIn274eds</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2ZmIn274eds&t=840s" target="_blank" rel="noopener">[14:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2ZmIn274eds" data-start="840">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2ZmIn274eds" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2ZmIn274eds</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2ZmIn274eds&t=1080s" target="_blank" rel="noopener">[18:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2ZmIn274eds" data-start="1080">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2ZmIn274eds" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2ZmIn274eds</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2ZmIn274eds&t=1260s" target="_blank" rel="noopener">[21:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2ZmIn274eds" data-start="1260">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2ZmIn274eds" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2ZmIn274eds</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2ZmIn274eds&t=1620s" target="_blank" rel="noopener">[27:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2ZmIn274eds" data-start="1620">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2ZmIn274eds" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2ZmIn274eds</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2ZmIn274eds&t=1860s" target="_blank" rel="noopener">[31:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2ZmIn274eds" data-start="1860">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2ZmIn274eds" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2ZmIn274eds</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=2ZmIn274eds&t=2100s" target="_blank" rel="noopener">[35:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="2ZmIn274eds" data-start="2100">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=2ZmIn274eds" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2ZmIn274eds</a>).</p>
+<h2 id="4-from-scalping-to-swing-trading">4. From scalping to swing trading</h2>
+<p>The fourth interview explains why the trader moved away from scalping toward swing trading. It covers the fifteen-minute PBD strategy alongside market profile, and compares a high win rate with the risk-to-reward ratio needed to make that win rate profitable.</p>
+<p>A large loss in oil — eight hundred points — is discussed as the worst trade, followed by a transition from oil to DAX. Risk is treated differently in a championship account than in private capital. The interview also notes that only around a hundred and fifty trading days a year are taken, and that family life and financial independence changed the tolerance for risk.</p>
+<p>Sources: <em>A 2x World Trading Champion's Embarrassingly Simple Strategy</em> — KavexTrade (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LJsBz14kh9w&t=0s" target="_blank" rel="noopener">[00:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LJsBz14kh9w" data-start="0">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LJsBz14kh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LJsBz14kh9w</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LJsBz14kh9w&t=72s" target="_blank" rel="noopener">[01:12]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LJsBz14kh9w" data-start="72">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LJsBz14kh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LJsBz14kh9w</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LJsBz14kh9w&t=188s" target="_blank" rel="noopener">[03:08]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LJsBz14kh9w" data-start="188">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LJsBz14kh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LJsBz14kh9w</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LJsBz14kh9w&t=270s" target="_blank" rel="noopener">[04:30]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LJsBz14kh9w" data-start="270">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LJsBz14kh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LJsBz14kh9w</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LJsBz14kh9w&t=348s" target="_blank" rel="noopener">[05:48]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LJsBz14kh9w" data-start="348">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LJsBz14kh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LJsBz14kh9w</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LJsBz14kh9w&t=498s" target="_blank" rel="noopener">[08:18]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LJsBz14kh9w" data-start="498">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LJsBz14kh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LJsBz14kh9w</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LJsBz14kh9w&t=615s" target="_blank" rel="noopener">[10:15]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LJsBz14kh9w" data-start="615">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LJsBz14kh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LJsBz14kh9w</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LJsBz14kh9w&t=670s" target="_blank" rel="noopener">[11:10]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LJsBz14kh9w" data-start="670">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LJsBz14kh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LJsBz14kh9w</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LJsBz14kh9w&t=720s" target="_blank" rel="noopener">[12:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LJsBz14kh9w" data-start="720">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LJsBz14kh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LJsBz14kh9w</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LJsBz14kh9w&t=776s" target="_blank" rel="noopener">[12:56]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LJsBz14kh9w" data-start="776">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LJsBz14kh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LJsBz14kh9w</a>); (<span class="ts-wrap"><a class="ts" href="https://www.youtube.com/watch?v=LJsBz14kh9w&t=960s" target="_blank" rel="noopener">[16:00]</a><button class="play" type="button" title="Watch this moment inline" aria-label="Watch this moment inline" onclick="toggleEmbed(this)" data-video="LJsBz14kh9w" data-start="960">&#9654;</button></span>, <a class="ext" href="https://www.youtube.com/watch?v=LJsBz14kh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?v=LJsBz14kh9w</a>).</p>
+<h2 id="5-how-to-use-these-sources">5. How to use these sources</h2>
+<p>These sessions are about order flow, range structure and discretionary decision-making. They complement the indicator-based notes in this guide rather than replacing them: use the higher-timeframe context and volume checks described elsewhere, then apply the range and touch logic described here.</p>
+<p>No transcript text is included on this site. Every summary point carries a timestamp so you can watch the original segment and form your own judgement. See <a href="../notice">Attribution and scope</a> for what is and is not covered by this site's license.</p>
+<footer style="margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.85rem;color:var(--muted)">
+<a href="../llms.txt">llms.txt</a> · <a href="../">index</a> · original text released under CC0
+</footer>
+</body>
+</html>
