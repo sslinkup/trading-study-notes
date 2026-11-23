@@ -1,50 +1,56 @@
 //@version=6
 // =============================================================================
-// Trading Study Notes — Complete Toolkit
-// -----------------------------------------------------------------------------
-// A companion indicator for the free study guide:
-// https://trading-study-notes.sanliurfa.workers.dev
+// Trading Study Notes - Toolkit (v6)
+// Companion indicator for https://trading-study-notes.sanliurfa.workers.dev
 //
-// Price-chart tools: EMAs, Ichimoku Cloud, Keltner Channels, Nadaraya-Watson
-// envelope. Oscillator readings (RSI health levels, stochastic RSI, fast
-// stochastic) are shown in a compact dashboard because Pine scripts can only
-// draw in one pane; the raw values are also exposed in the Data Window.
-//
-// NOTE: Aggr.Trade-style order flow, delta and volume-threshold readings cannot
-// be reproduced in Pine. Use an external order-flow tool for that part.
+// Design goal: one calm, readable overlay. Heavy lines are reserved for the
+// levels that matter; supporting tools are translucent. Oscillator readings
+// live in a compact dashboard instead of cluttering price.
+// NOTE: Aggr.Trade order-flow / delta data cannot be reproduced in Pine.
 // =============================================================================
 
-indicator("Trading Study Notes - Complete Toolkit", shorttitle="TSNToolkit", overlay=true, max_bars_back=500)
+indicator("TSN Toolkit", shorttitle="TSNKit", overlay=true, max_bars_back=500)
 
-// ───────────────────────────────────────── Inputs
-grpPrice = "Price overlays"
-showEMA  = input.bool(true,  "EMAs 9 / 30 / 50 / 100 / 200", group=grpPrice)
-showIchi = input.bool(true,  "Ichimoku Cloud 9 / 26 / 52",   group=grpPrice)
-showKelt = input.bool(true,  "Keltner Channels",              group=grpPrice)
-showNW   = input.bool(true,  "Nadaraya-Watson envelope",      group=grpPrice)
+// ─────────────────────────────── PALETTE
+C_AQUA   = color.new(color.aqua, 0)
+C_BLUE   = color.new(color.blue, 0)
+C_GOLD   = color.new(color.yellow, 0)
+C_LIME   = color.new(color.lime, 0)
+C_RED    = color.new(color.red, 0)
+C_GRAY   = color.new(color.gray, 35)
+C_TEAL   = color.new(color.teal, 0)
+C_WHITE  = color.white
+C_DARK   = color.new(color.black, 15)
 
-keltLen      = input.int(20, "Keltner EMA length", minval=1, group=grpPrice)
-keltMultAuto = input.bool(true, "Auto multiplier (1 intraday / 2 higher TF)", group=grpPrice)
-keltMult     = input.float(1.0, "Keltner multiplier", minval=0.1, step=0.1, group=grpPrice)
+// ─────────────────────────────── INPUTS
+g1 = "Price structure"
+showEMA  = input.bool(true, "EMAs", group=g1, tooltip="9 / 30 / 50 / 100 / 200")
+showIchi = input.bool(true, "Ichimoku cloud", group=g1, tooltip="9 / 26 / 52")
+showKelt = input.bool(true, "Keltner channels", group=g1)
+showNW   = input.bool(true, "Nadaraya-Watson envelope", group=g1)
 
-nwLen   = input.int(100, "NW lookback", minval=10, group=grpPrice)
-nwH     = input.float(3.0, "NW bandwidth (h)", minval=0.1, step=0.1, group=grpPrice)
-nwMult  = input.float(1.0, "NW envelope width (x stdev)", minval=0.1, step=0.1, group=grpPrice)
+keltLen      = input.int(20, "Keltner length", minval=1, group=g1)
+keltAuto     = input.bool(true, "Auto multiplier 1x intraday / 2x higher", group=g1)
+keltMult     = input.float(1.0, "Keltner multiplier", minval=0.1, step=0.1, group=g1)
+nwLen        = input.int(100, "NW lookback", minval=10, group=g1)
+nwH          = input.float(3.0, "NW bandwidth", minval=0.1, step=0.1, group=g1)
+nwWidth      = input.float(1.0, "NW envelope width", minval=0.1, step=0.1, group=g1)
 
-grpOsc   = "Oscillators & dashboard"
-showDash = input.bool(true, "Show dashboard", group=grpOsc)
-showBg   = input.bool(false, "Tint background by RSI regime", group=grpOsc)
-rsiLen   = input.int(14, "RSI length", minval=2, group=grpOsc)
-stochLen = input.int(14, "Stoch RSI length", minval=2, group=grpOsc)
-stochK   = input.int(3,  "Stoch RSI %K smoothing", minval=1, group=grpOsc)
-stochD   = input.int(3,  "Stoch RSI %D smoothing", minval=1, group=grpOsc)
-fastLen  = input.int(33, "Fast stoch RSI length (33 of 3369)", minval=2, group=grpOsc)
-fastSm   = input.int(6,  "Fast smoothing (6 of 3369)", minval=1, group=grpOsc)
-fastSig  = input.int(9,  "Fast signal (9 of 3369)", minval=1, group=grpOsc)
+g2 = "Oscillators"
+rsiLen   = input.int(14, "RSI length", minval=2, group=g2)
+stLen    = input.int(14, "Stoch RSI length", minval=2, group=g2)
+stK      = input.int(3, "Stoch %K", minval=1, group=g2)
+stD      = input.int(3, "Stoch %D", minval=1, group=g2)
+fastLen  = input.int(33, "Fast length (33 of 3369)", minval=2, group=g2)
+fastSm   = input.int(6, "Fast smooth (6 of 3369)", minval=1, group=g2)
+fastSig  = input.int(9, "Fast signal (9 of 3369)", minval=1, group=g2)
 
-// ───────────────────────────────────────── Helper: Nadaraya-Watson estimate
-// Lightweight NW-style weighted average of recent closes, with an envelope
-// built from the rolling standard deviation. It is a visual aid, not a signal.
+g3 = "Display"
+showDash = input.bool(true, "Dashboard", group=g3)
+showTint = input.bool(false, "Soft RSI background tint", group=g3)
+showTags = input.bool(true, "Level tags on last bar", group=g3)
+
+// ─────────────────────────────── NW ESTIMATE
 nwEstimate(src, lookback, h) =>
     float sumY = 0.0
     float sumW = 0.0
@@ -54,71 +60,69 @@ nwEstimate(src, lookback, h) =>
         sumW += w
     sumY / sumW
 
-// ───────────────────────────────────────── EMAs
-ema9   = ta.ema(close, 9)
-ema30  = ta.ema(close, 30)
-ema50  = ta.ema(close, 50)
-ema100 = ta.ema(close, 100)
-ema200 = ta.ema(close, 200)
-
-plot(showEMA ? ema9   : na, color=color.new(color.aqua,   0), title="EMA 9",   linewidth=2)
-plot(showEMA ? ema30  : na, color=color.new(color.orange, 20), title="EMA 30")
-plot(showEMA ? ema50  : na, color=color.new(color.yellow, 20), title="EMA 50")
-plot(showEMA ? ema100 : na, color=color.new(color.lime,   10), title="EMA 100", linewidth=2)
-plot(showEMA ? ema200 : na, color=color.new(color.red,    10), title="EMA 200", linewidth=2)
-
-// ───────────────────────────────────────── Ichimoku Cloud (built manually)
+// ─────────────────────────────── ICHIMOKU (manual)
 tenkan  = (ta.highest(high, 9) + ta.lowest(low, 9)) / 2
 kijun   = (ta.highest(high, 26) + ta.lowest(low, 26)) / 2
 senkouA = (tenkan + kijun) / 2
 senkouB = (ta.highest(high, 52) + ta.lowest(low, 52)) / 2
-chikou  = close
 
-pSa = plot(showIchi ? senkouA : na, color=color.new(color.teal, 65), title="Ichimoku A", offset=26)
-pSb = plot(showIchi ? senkouB : na, color=color.new(color.red,  65), title="Ichimoku B", offset=26)
-fill(pSa, pSb, color=senkouA > senkouB ? color.new(color.teal, 82) : color.new(color.red, 82), title="Ichimoku cloud")
-plot(showIchi ? tenkan : na, color=color.new(color.blue, 20), title="Tenkan")
-plot(showIchi ? kijun  : na, color=color.new(color.red,  20), title="Kijun")
+cloudUp = senkouA > senkouB
+pSa = plot(showIchi ? senkouA : na, color=color.new(color.teal, 70), title="Cloud A", offset=26)
+pSb = plot(showIchi ? senkouB : na, color=color.new(color.red, 70), title="Cloud B", offset=26)
+fill(pSa, pSb, color=cloudUp ? color.new(color.teal, 85) : color.new(color.red, 85), title="Ichimoku cloud")
+plot(showIchi ? tenkan : na, color=color.new(color.blue, 35), linewidth=1, title="Tenkan")
+plot(showIchi ? kijun : na, color=color.new(color.red, 35), linewidth=1, title="Kijun")
 
-// ───────────────────────────────────────── Keltner Channels
-kcMult  = keltMultAuto ? (timeframe.isintraday ? 1.0 : 2.0) : keltMult
-kcBase  = ta.ema(close, keltLen)
+// ─────────────────────────────── KELTNER
+km = keltAuto ? (timeframe.isintraday ? 1.0 : 2.0) : keltMult
+kcBase = ta.ema(close, keltLen)
 kcRange = ta.ema(ta.tr, keltLen)
-kcUp    = kcBase + kcMult * kcRange
-kcDn    = kcBase - kcMult * kcRange
+kcUp = kcBase + km * kcRange
+kcDn = kcBase - km * kcRange
+pKu = plot(showKelt ? kcUp : na, color=color.new(color.gray, 25), linewidth=1, title="Keltner upper")
+pKd = plot(showKelt ? kcDn : na, color=color.new(color.gray, 25), linewidth=1, title="Keltner lower")
+fill(pKu, pKd, color=color.new(color.gray, 93), title="Keltner band")
+plot(showKelt ? kcBase : na, color=color.new(color.gray, 55), linewidth=1, title="Keltner mid")
 
-plot(showKelt ? kcUp  : na, color=color.new(color.gray, 20), title="Keltner upper")
-plot(showKelt ? kcBase: na, color=color.new(color.gray, 50), title="Keltner midline")
-plot(showKelt ? kcDn  : na, color=color.new(color.gray, 20), title="Keltner lower")
-
-// ───────────────────────────────────────── Nadaraya-Watson envelope
+// ─────────────────────────────── NADARAYA-WATSON
 nwBase = nwEstimate(close, nwLen, nwH)
-nwDev  = ta.stdev(close, nwLen) * nwMult
-nwUp   = nwBase + nwDev
-nwDn   = nwBase - nwDev
+nwDev = ta.stdev(close, nwLen) * nwWidth
+nwUp = nwBase + nwDev
+nwDn = nwBase - nwDev
+nwTone = nwUp < kcUp ? color.new(color.green, 10) : nwDn > kcDn ? color.new(color.red, 10) : color.new(color.gray, 20)
+pNu = plot(showNW ? nwUp : na, color=nwTone, linewidth=2, title="NW upper")
+pNd = plot(showNW ? nwDn : na, color=nwTone, linewidth=2, title="NW lower")
+fill(pNu, pNd, color=color.new(color.gray, 92), title="NW band")
+plot(showNW ? nwBase : na, color=color.new(color.silver, 45), linewidth=1, title="NW base")
 
-nwColor = nwUp < kcUp ? color.new(color.green, 0) : nwDn > kcDn ? color.new(color.red, 0) : color.new(color.gray, 0)
-plot(showNW ? nwBase : na, color=color.new(color.silver, 30), title="NW baseline")
-plot(showNW ? nwUp   : na, color=nwColor, title="NW upper", linewidth=2)
-plot(showNW ? nwDn   : na, color=nwColor, title="NW lower", linewidth=2)
+// ─────────────────────────────── EMAs
+plot(showEMA ? ta.ema(close, 9) : na, color=C_AQUA, linewidth=2, title="EMA 9")
+plot(showEMA ? ta.ema(close, 30) : na, color=color.new(color.orange, 15), linewidth=1, title="EMA 30")
+plot(showEMA ? ta.ema(close, 50) : na, color=color.new(color.yellow, 25), linewidth=1, title="EMA 50")
+plot(showEMA ? ta.ema(close, 100) : na, color=color.new(color.lime, 20), linewidth=2, title="EMA 100")
+plot(showEMA ? ta.ema(close, 200) : na, color=color.new(color.red, 20), linewidth=2, title="EMA 200")
 
-// ───────────────────────────────────────── Oscillators (values in Data Window)
-rsi     = ta.rsi(close, rsiLen)
-rsiSrc  = ta.rsi(close, rsiLen)
-stochKv = ta.stoch(rsiSrc, rsiSrc, rsiSrc, stochLen)
-stochDv = ta.sma(stochKv, stochD)
-fastKv  = ta.stoch(rsiSrc, rsiSrc, rsiSrc, fastLen)
+ema9 = ta.ema(close, 9)
+ema100 = ta.ema(close, 100)
+ema200 = ta.ema(close, 200)
+
+// ─────────────────────────────── OSCILLATORS
+rsi = ta.rsi(close, rsiLen)
+rsiSrc = ta.rsi(close, rsiLen)
+stKv = ta.stoch(rsiSrc, rsiSrc, rsiSrc, stLen)
+stDv = ta.sma(stKv, stD)
+fastKv = ta.stoch(rsiSrc, rsiSrc, rsiSrc, fastLen)
 fastSmv = ta.sma(fastKv, fastSm)
 fastSgv = ta.sma(fastSmv, fastSig)
 
-plot(rsi,     display=display.data_window, title="RSI")
-plot(stochKv, display=display.data_window, title="Stoch RSI %K")
-plot(stochDv, display=display.data_window, title="Stoch RSI %D")
-plot(fastSmv, display=display.data_window, title="Fast stoch (33/6/9)")
-plot(fastSgv, display=display.data_window, title="Fast stoch signal")
+plot(rsi, display=display.data_window, title="RSI")
+plot(stKv, display=display.data_window, title="Stoch K")
+plot(stDv, display=display.data_window, title="Stoch D")
+plot(fastSmv, display=display.data_window, title="Fast 33/6/9")
+plot(fastSgv, display=display.data_window, title="Fast signal")
 
-// RSI health labels from the study notes: 36 / 46 / 56 / 65.
-rsiZone = rsi >= 65 ? "EXTREME >65" : rsi >= 56 ? "BULL >56" : rsi <= 36 ? "DEEP BEAR <36" : rsi <= 46 ? "BEAR <46" : "NEUTRAL 46-56"
+rsiZone = rsi >= 65 ? "EXTREME" : rsi >= 56 ? "BULL" : rsi <= 36 ? "DEEP BEAR" : rsi <= 46 ? "BEAR" : "NEUTRAL"
+rsiGood = rsi >= 56
 
 emaRegime = "MIXED"
 if close > ema9 and close > ema100 and close > ema200
@@ -132,48 +136,55 @@ if close > senkouA and close > senkouB
 else if close < senkouA and close < senkouB
     ichiState := "BELOW CLOUD"
 
-kcState = close > kcUp ? "ABOVE UPPER" : close < kcDn ? "BELOW LOWER" : "INSIDE"
+keltState = close > kcUp ? "ABOVE" : close < kcDn ? "BELOW" : "INSIDE"
+nwState = nwUp < kcUp ? "GREEN / INSIDE" : nwDn > kcDn ? "RED / OUTSIDE" : "NEUTRAL"
 
-tone(cond) => cond ? color.new(color.green, 0) : color.new(color.red, 0)
+tone(isGood) => isGood ? color.new(color.green, 5) : color.new(color.red, 5)
 
-bgcolor(showBg ? (rsi >= 56 ? color.new(color.green, 95) : rsi <= 46 ? color.new(color.red, 95) : na) : na, title="RSI regime tint")
+bgcolor(showTint ? (rsi >= 56 ? color.new(color.green, 96) : rsi <= 46 ? color.new(color.red, 96) : na) : na, title="RSI tint")
 
-// ───────────────────────────────────────── Dashboard
-var table dash = table.new(position.top_right, 2, 9, border_width=1, bgcolor=color.new(color.black, 12), frame_color=color.new(color.gray, 40), frame_width=1)
+// ─────────────────────────────── LAST-BAR TAGS
+if showTags and barstate.islast
+    label.new(bar_index, kcUp, "KC x" + str.tostring(km, "#.#"), style=label.style_label_lower_left, color=color.new(color.gray, 80), textcolor=C_GRAY, size=size.tiny)
+    label.new(bar_index, nwUp, "NW", style=label.style_label_lower_left, color=color.new(color.gray, 80), textcolor=nwTone, size=size.tiny)
+    label.new(bar_index, ema200, "EMA200", style=label.style_label_lower_left, color=color.new(color.gray, 80), textcolor=C_RED, size=size.tiny)
 
-if barstate.islast and showDash
-    table.cell(dash, 0, 0, "TSN TOOLKIT", bgcolor=color.new(color.blue, 40), text_color=color.white, text_size=size.small)
-    table.cell(dash, 1, 0, timeframe.period, bgcolor=color.new(color.blue, 40), text_color=color.white, text_size=size.small)
+// ─────────────────────────────── DASHBOARD
+var table dash = table.new(position.top_right, 2, 9, border_width=1, bgcolor=C_DARK, frame_color=color.new(color.gray, 40), frame_width=1)
 
-    table.cell(dash, 0, 1, "RSI " + str.tostring(rsiLen), text_size=size.small)
-    table.cell(dash, 1, 1, str.tostring(rsi, "#.0") + "  " + rsiZone, text_color=tone(rsi >= 56), text_size=size.small)
+if showDash and barstate.islast
+    table.merge_cells(dash, 0, 0, 1, 0)
+    table.cell(dash, 0, 0, "TSN TOOLKIT   " + timeframe.period, bgcolor=color.new(color.blue, 35), text_color=C_WHITE, text_size=size.small)
 
-    table.cell(dash, 0, 2, "Stoch RSI", text_size=size.small)
-    table.cell(dash, 1, 2, str.tostring(stochKv, "#.0") + " / " + str.tostring(stochDv, "#.0"), text_size=size.small)
+    table.cell(dash, 0, 1, "RSI " + str.tostring(rsiLen), text_color=C_GRAY, text_size=size.small)
+    table.cell(dash, 1, 1, str.tostring(rsi, "#.0") + "  " + rsiZone, text_color=tone(rsiGood), text_size=size.small, text_halign=text.align_right)
 
-    table.cell(dash, 0, 3, "Fast stoch 3369", text_size=size.small)
-    table.cell(dash, 1, 3, str.tostring(fastSmv, "#.0") + " / " + str.tostring(fastSgv, "#.0"), text_size=size.small)
+    table.cell(dash, 0, 2, "Stoch RSI", text_color=C_GRAY, text_size=size.small)
+    table.cell(dash, 1, 2, str.tostring(stKv, "#.0") + " / " + str.tostring(stDv, "#.0"), text_color=C_WHITE, text_size=size.small, text_halign=text.align_right)
 
-    table.cell(dash, 0, 4, "EMA regime", text_size=size.small)
-    table.cell(dash, 1, 4, emaRegime, text_color=tone(emaRegime == "BULL"), text_size=size.small)
+    table.cell(dash, 0, 3, "Fast 3369", text_color=C_GRAY, text_size=size.small)
+    table.cell(dash, 1, 3, str.tostring(fastSmv, "#.0") + " / " + str.tostring(fastSgv, "#.0"), text_color=C_WHITE, text_size=size.small, text_halign=text.align_right)
 
-    table.cell(dash, 0, 5, "Ichimoku", text_size=size.small)
-    table.cell(dash, 1, 5, ichiState, text_color=tone(ichiState == "ABOVE CLOUD"), text_size=size.small)
+    table.cell(dash, 0, 4, "EMA regime", text_color=C_GRAY, text_size=size.small)
+    table.cell(dash, 1, 4, emaRegime, text_color=tone(emaRegime == "BULL"), text_size=size.small, text_halign=text.align_right)
 
-    table.cell(dash, 0, 6, "Keltner", text_size=size.small)
-    table.cell(dash, 1, 6, kcState + "  (x" + str.tostring(kcMult, "#.#") + ")", text_size=size.small)
+    table.cell(dash, 0, 5, "Ichimoku", text_color=C_GRAY, text_size=size.small)
+    table.cell(dash, 1, 5, ichiState, text_color=tone(ichiState == "ABOVE CLOUD"), text_size=size.small, text_halign=text.align_right)
 
-    table.cell(dash, 0, 7, "NW envelope", text_size=size.small)
-    table.cell(dash, 1, 7, nwUp < kcUp ? "GREEN / INSIDE" : nwDn > kcDn ? "RED / OUTSIDE" : "NEUTRAL", text_size=size.small)
+    table.cell(dash, 0, 6, "Keltner", text_color=C_GRAY, text_size=size.small)
+    table.cell(dash, 1, 6, keltState + "  x" + str.tostring(km, "#.#"), text_color=C_WHITE, text_size=size.small, text_halign=text.align_right)
 
-    table.cell(dash, 0, 8, "Guide", text_size=size.small)
-    table.cell(dash, 1, 8, "trading-study-notes.sanliurfa.workers.dev", text_size=size.tiny)
+    table.cell(dash, 0, 7, "NW envelope", text_color=C_GRAY, text_size=size.small)
+    table.cell(dash, 1, 7, nwState, text_color=tone(nwState == "GREEN / INSIDE"), text_size=size.small, text_halign=text.align_right)
 
-// ───────────────────────────────────────── Alerts
-alertcondition(ta.crossover(rsi, 56), title="RSI above 56", message="RSI crossed above 56 (bullish confirmation)")
-alertcondition(ta.crossunder(rsi, 46), title="RSI below 46", message="RSI crossed below 46 (bearish shift)")
-alertcondition(ta.crossunder(rsi, 36), title="RSI below 36", message="RSI crossed below 36 (deep bearish)")
-alertcondition(ta.crossunder(close, kcDn), title="Below Keltner", message="Price closed below the lower Keltner band")
-alertcondition(ta.crossover(close, kcUp), title="Above Keltner", message="Price closed above the upper Keltner band")
-alertcondition(ta.crossover(fastSmv, fastSgv), title="Fast stoch cross up", message="Fast stochastic crossed above its signal")
-alertcondition(ta.crossunder(fastSmv, fastSgv), title="Fast stoch cross down", message="Fast stochastic crossed below its signal")
+    table.cell(dash, 0, 8, "Order flow", text_color=C_GRAY, text_size=size.small)
+    table.cell(dash, 1, 8, "external tool", text_color=color.new(color.orange, 10), text_size=size.small, text_halign=text.align_right)
+
+// ─────────────────────────────── ALERTS
+alertcondition(ta.crossover(rsi, 56), title="RSI > 56", message="RSI crossed above 56")
+alertcondition(ta.crossunder(rsi, 46), title="RSI < 46", message="RSI crossed below 46")
+alertcondition(ta.crossunder(rsi, 36), title="RSI < 36", message="RSI crossed below 36")
+alertcondition(ta.crossover(close, kcUp), title="Above Keltner", message="Price above upper Keltner band")
+alertcondition(ta.crossunder(close, kcDn), title="Below Keltner", message="Price below lower Keltner band")
+alertcondition(ta.crossover(fastSmv, fastSgv), title="Fast stoch up", message="Fast stochastic crossed up")
+alertcondition(ta.crossunder(fastSmv, fastSgv), title="Fast stoch down", message="Fast stochastic crossed down")

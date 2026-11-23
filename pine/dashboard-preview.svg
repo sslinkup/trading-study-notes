@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="330" viewBox="0 0 560 330">
+  <rect width="560" height="330" fill="#0b1220"/>
+  <rect x="20" y="16" width="520" height="298" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <rect x="21" y="17" width="518" height="34" rx="9" fill="#0a3069"/>
+  <text x="32" y="40" fill="#ffffff" font-family="Menlo, monospace" font-size="15" font-weight="bold">TSN TOOLKIT   15m</text>
+
+  <g font-family="Menlo, monospace" font-size="13">
+    <g fill="#9da7b3">
+      <text x="32" y="79">RSI 14</text>
+      <text x="32" y="106">Stoch RSI</text>
+      <text x="32" y="133">Fast 3369</text>
+      <text x="32" y="160">EMA regime</text>
+      <text x="32" y="187">Ichimoku</text>
+      <text x="32" y="214">Keltner</text>
+      <text x="32" y="241">NW envelope</text>
+      <text x="32" y="268">Order flow</text>
+    </g>
+    <g text-anchor="end">
+      <text x="528" y="79" fill="#3fb950">61.4  BULL</text>
+      <text x="528" y="106" fill="#e6edf3">72.1 / 68.5</text>
+      <text x="528" y="133" fill="#e6edf3">55.2 / 51.8</text>
+      <text x="528" y="160" fill="#3fb950">BULL</text>
+      <text x="528" y="187" fill="#3fb950">ABOVE CLOUD</text>
+      <text x="528" y="214" fill="#e6edf3">INSIDE  x1.0</text>
+      <text x="528" y="241" fill="#3fb950">GREEN / INSIDE</text>
+      <text x="528" y="268" fill="#d29922">external tool</text>
+    </g>
+  </g>
+  <g stroke="#21262d" stroke-width="1">
+    <path d="M22 66H538 M22 93H538 M22 120H538 M22 147H538 M22 174H538 M22 201H538 M22 228H538 M22 255H538 M22 282H538"/>
+  </g>
+  <text x="32" y="305" fill="#57606a" font-family="Menlo, monospace" font-size="10">trading-study-notes.sanliurfa.workers.dev</text>
+</svg>
