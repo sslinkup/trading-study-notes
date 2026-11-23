@@ -1,4 +1,4 @@
-//@version=5
+//@version=6
 // =============================================================================
 // Trading Study Notes — Complete Toolkit
 // -----------------------------------------------------------------------------
@@ -14,8 +14,7 @@
 // be reproduced in Pine. Use an external order-flow tool for that part.
 // =============================================================================
 
-indicator("Trading Study Notes — Complete Toolkit", shorttitle="TSN Toolkit",
-     overlay=true, max_bars_back=500)
+indicator("Trading Study Notes - Complete Toolkit", shorttitle="TSNToolkit", overlay=true, max_bars_back=500)
 
 // ───────────────────────────────────────── Inputs
 grpPrice = "Price overlays"
@@ -68,13 +67,16 @@ plot(showEMA ? ema50  : na, color=color.new(color.yellow, 20), title="EMA 50")
 plot(showEMA ? ema100 : na, color=color.new(color.lime,   10), title="EMA 100", linewidth=2)
 plot(showEMA ? ema200 : na, color=color.new(color.red,    10), title="EMA 200", linewidth=2)
 
-// ───────────────────────────────────────── Ichimoku Cloud
-[tenkan, kijun, senkouA, senkouB, chikou] = ta.ichimoku(9, 26, 52)
+// ───────────────────────────────────────── Ichimoku Cloud (built manually)
+tenkan  = (ta.highest(high, 9) + ta.lowest(low, 9)) / 2
+kijun   = (ta.highest(high, 26) + ta.lowest(low, 26)) / 2
+senkouA = (tenkan + kijun) / 2
+senkouB = (ta.highest(high, 52) + ta.lowest(low, 52)) / 2
+chikou  = close
 
 pSa = plot(showIchi ? senkouA : na, color=color.new(color.teal, 65), title="Ichimoku A", offset=26)
 pSb = plot(showIchi ? senkouB : na, color=color.new(color.red,  65), title="Ichimoku B", offset=26)
-fill(pSa, pSb, color = senkouA > senkouB ? color.new(color.teal, 82) : color.new(color.red, 82),
-     title="Ichimoku cloud")
+fill(pSa, pSb, color=senkouA > senkouB ? color.new(color.teal, 82) : color.new(color.red, 82), title="Ichimoku cloud")
 plot(showIchi ? tenkan : na, color=color.new(color.blue, 20), title="Tenkan")
 plot(showIchi ? kijun  : na, color=color.new(color.red,  20), title="Kijun")
 
@@ -118,22 +120,26 @@ plot(fastSgv, display=display.data_window, title="Fast stoch signal")
 // RSI health labels from the study notes: 36 / 46 / 56 / 65.
 rsiZone = rsi >= 65 ? "EXTREME >65" : rsi >= 56 ? "BULL >56" : rsi <= 36 ? "DEEP BEAR <36" : rsi <= 46 ? "BEAR <46" : "NEUTRAL 46-56"
 
-emaRegime = close > ema9 and close > ema100 and close > ema200 ? "BULL" :
-            close < ema9 and close < ema100 and close < ema200 ? "BEAR" : "MIXED"
+emaRegime = "MIXED"
+if close > ema9 and close > ema100 and close > ema200
+    emaRegime := "BULL"
+else if close < ema9 and close < ema100 and close < ema200
+    emaRegime := "BEAR"
 
-ichiState = close > senkouA and close > senkouB ? "ABOVE CLOUD" :
-            close < senkouA and close < senkouB ? "BELOW CLOUD" : "IN CLOUD"
+ichiState = "IN CLOUD"
+if close > senkouA and close > senkouB
+    ichiState := "ABOVE CLOUD"
+else if close < senkouA and close < senkouB
+    ichiState := "BELOW CLOUD"
 
 kcState = close > kcUp ? "ABOVE UPPER" : close < kcDn ? "BELOW LOWER" : "INSIDE"
 
 tone(cond) => cond ? color.new(color.green, 0) : color.new(color.red, 0)
 
-bgcolor(showBg ? (rsi >= 56 ? color.new(color.green, 95) : rsi <= 46 ? color.new(color.red, 95) : na) : na,
-     title="RSI regime tint")
+bgcolor(showBg ? (rsi >= 56 ? color.new(color.green, 95) : rsi <= 46 ? color.new(color.red, 95) : na) : na, title="RSI regime tint")
 
 // ───────────────────────────────────────── Dashboard
-var table dash = table.new(position.top_right, 2, 9, border_width=1,
-     bgcolor=color.new(color.black, 12), frame_color=color.new(color.gray, 40), frame_width=1)
+var table dash = table.new(position.top_right, 2, 9, border_width=1, bgcolor=color.new(color.black, 12), frame_color=color.new(color.gray, 40), frame_width=1)
 
 if barstate.islast and showDash
     table.cell(dash, 0, 0, "TSN TOOLKIT", bgcolor=color.new(color.blue, 40), text_color=color.white, text_size=size.small)
