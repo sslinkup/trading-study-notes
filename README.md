@@ -13,7 +13,8 @@ This is an **independent** study guide. It is not affiliated with, endorsed by, 
 | `public_src/` | Editable Markdown notes, license, attribution, site URL and card SVGs |
 | `docs/` | Built static site (ready to host on GitHub Pages from `/docs`) |
 | `tools/md2html.py` | Converts Markdown to HTML, deep-links timestamps, generates sitemap / `llms.txt` |
-| `tools/make_note_cards.py` | Renders the six note social cards from SVG |
+| `tools/make_note_cards.py` | Renders the note social cards from SVG |
+| `pine/trading-study-notes.pine` | TradingView Pine Script v5 companion indicator (EMAs, Ichimoku, Keltner, NW envelope, RSI/stochastic dashboard) |
 | `PUBLISH.md` | Full publishing and regeneration instructions |
 
 ## Notes
