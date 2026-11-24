@@ -13,6 +13,7 @@
 - No ads, affiliate links, paywalls, donations, or tracking — the site is deliberately non-commercial, and the text is CC0 so anyone can reuse it freely.
 - An original 1200x630 social preview card at `social-card.png`, plus one matching card per note under `cards/`. Each page uses its own card as `og:image` and `twitter:image`.
 - A responsive homepage with image cards, a live search box, and compact links to the secondary pages.
+- An original logo/favicon set (`favicon.ico`, PNG sizes, `apple-touch-icon.png`) linked on every page and referenced in the JSON-LD `image` / publisher logo fields.
 - A small ▶ button beside every timestamp that loads a `youtube-nocookie.com` embed at that exact second, only when clicked; clicking it again removes the player.
 
 ## What is not in it

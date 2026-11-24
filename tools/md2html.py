@@ -263,6 +263,7 @@ def page(title: str, body: str, rel_index: str, description: str, url: str, date
     t = html_mod.escape(plain(title), quote=True)
     d = html_mod.escape(description, quote=True)
     u = html_mod.escape(url, quote=True)
+    logo_obj = {"@type": "ImageObject", "url": BASE_URL + "/logo-512.png"}
     json_ld = json.dumps({
         "@context": "https://schema.org",
         "@type": "Article",
@@ -270,8 +271,9 @@ def page(title: str, body: str, rel_index: str, description: str, url: str, date
         "description": description,
         "datePublished": date,
         "dateModified": date,
-        "author": {"@type": "Organization", "name": SITE_TITLE},
-        "publisher": {"@type": "Organization", "name": SITE_TITLE},
+        "image": BASE_URL + "/logo-512.png",
+        "author": {"@type": "Organization", "name": SITE_TITLE, "logo": logo_obj},
+        "publisher": {"@type": "Organization", "name": SITE_TITLE, "logo": logo_obj},
         "mainEntityOfPage": url,
         "inLanguage": "en",
     }, ensure_ascii=False)
@@ -283,6 +285,10 @@ def page(title: str, body: str, rel_index: str, description: str, url: str, date
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{t}</title>
+<link rel="icon" type="image/png" sizes="32x32" href="{rel_index}favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{rel_index}favicon-16.png">
+<link rel="shortcut icon" href="{rel_index}favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="{rel_index}apple-touch-icon.png">
 <meta name="description" content="{d}">
 <meta name="author" content="{html_mod.escape(SITE_TITLE, quote=True)}">
 <meta name="robots" content="index, follow, max-snippet:-1">
